@@ -1,0 +1,859 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0104)http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Powered by Perl http://www.perl.org/ -->
+
+
+
+
+<link rel="canonical" href="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer.htm">
+<link rel="home" type="text/html" title="home:heise Developer" href="http://www.heise.de/developer/">
+<link rel="author" title="Kontakt" href="mailto:developer@heise.de">
+<link rel="copyright" title="Copyright" href="http://www.heise.de/developer/Impressum-5196.html">
+<link rel="search" title="Suche" href="http://www.heise.de/developer/suche/">
+<link rel="alternate" type="application/atom+xml" title="Neueste Meldungen von heise Developer" href="http://www.heise.de/developer/rss/news-atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Developer-Blog: Babel-Bulletin" href="http://www.heise.de/developer/rss/babel-bulletin/blog-atom.xml">
+<link rel="alternate" type="application/rss+xml" title="Developer-Blog: Babel-Bulletin (für ältere RSS-Reader)" href="http://www.heise.de/developer/rss/babel-bulletin/blog.rdf">
+<link rel="alternate" type="application/atom+xml" title="Developer-Blog: Der Dotnet-Doktor" href="http://www.heise.de/developer/rss/dotnet-doktor/blog-atom.xml">
+<link rel="alternate" type="application/rss+xml" title="Developer-Blog: Der Dotnet-Doktor (für ältere RSS-Reader)" href="http://www.heise.de/developer/rss/dotnet-doktor/blog.rdf">
+<link rel="alternate" type="application/atom+xml" title="Developer-Blog: Kais bewegtes Web" href="http://www.heise.de/developer/rss/kais-bewegtes-web/blog-atom.xml">
+<link rel="alternate" type="application/rss+xml" title="Developer-Blog: Kais bewegtes Web (für ältere RSS-Reader)" href="http://www.heise.de/developer/rss/kais-bewegtes-web/blog.rdf">
+<link rel="alternate" type="application/atom+xml" title="Developer-Blog: Bernds Management-Welt" href="http://www.heise.de/developer/rss/bernds-management-welt/blog-atom.xml">
+<link rel="alternate" type="application/rss+xml" title="Developer-Blog: Bernds Management-Welt (für ältere RSS-Reader)" href="http://www.heise.de/developer/rss/bernds-management-welt/blog.rdf">
+<link rel="alternate" type="application/atom+xml" title="Developer-Blog: The World of IT" href="http://www.heise.de/developer/rss/world-of-it/blog-atom.xml">
+<link rel="alternate" type="application/rss+xml" title="Developer-Blog: The World of IT (für ältere RSS-Reader)" href="http://www.heise.de/developer/rss/world-of-it/blog.rdf">
+<link rel="alternate" type="application/rss+xml" title="Developer-Podcast: SoftwareArchitekTOUR" href="http://www.heise.de/developer/podcast/itunes/heise-developer-podcast-softwarearchitektour.rss">
+
+
+
+
+<style type="text/css" style="display:none">/**/body{background:#FFF;color:#151515;font-family:Arial,Helvetica,Verdana,sans-serif;font-size:100.01%;line-height:120%;}td,th{font-family:Arial,Helvetica,Verdana,sans-serif;}a:visited{color:#666;}a:active{color:#c00;}a:link{color:#039;}h1,h2,h3,h4,fieldset,form{margin:0;}h1,h2{font-size:1.2em;margin-bottom:.5em;}h3,h4,p,pre,ul{font-size:1em;}pre,code,tt{font-family:"Courier New",monospace;font-size:.9em;}sup,sub{font-size:75%;line-height:0;}.left{float:left;}.right{float:right;}.nowrap{white-space:nowrap;}.unsichtbar,.none{display:none;}table td,table th{border:none;padding:.2em .5em;}th{font-weight:700;text-align:left;}table.color{border-spacing:2px 1px;}table.border,.meldung_wrapper table{border-collapse:collapse;}td.color,th.color{background:#eee;}.meldung_wrapper .ISI_IGNORE table,.meldung_wrapper .ISI_IGNORE td{border:none;margin:0;padding:0;}table.border td,table.border th,.meldung_wrapper table td,.meldung_wrapper table th{border:1px solid #333;}.meldung_wrapper table[align="right"]{margin-bottom:1em;margin-left:1em;}.meldung_wrapper table[align="left"]{margin-bottom:1em;margin-right:1em;}.heise-table{border-collapse:collapse;border-spacing:0 0;font-size:.8em;margin-bottom:1em;}.heise-table td,.heise-table th{border:1px solid #666;}.heise-table-title{background-color:#929090;color:#fff;font-weight:700;text-align:center;}.heise-table-subtitle{background-color:#d2d0d0;font-weight:700;}.heise-table-header{background-color:#eee;font-weight:700;}.heise-table-emph{background-color:#eee;}th.left,td.left,.text_left{float:none;text-align:left;}th.right,td.right,.text_right,.rechts_buendig{float:none;text-align:right;}th.center,td.center,.text_center{float:none;text-align:center;}td.top,th.top{vertical-align:top;}td.bottom,th.bottom{vertical-align:bottom;}.heisebox,.heisebox_left,.heisebox_right{border:1px solid #999;font-size:90%;}.heisebox{margin:1.5em 0;}.heisebox_left,.heisebox_right{width:40%;}.heisebox_left{float:left;margin:.2em 1.2em .2em 0;}.heisebox_right{float:right;margin:.2em 0 .2em 1.2em;}.heisebox h4,.heisebox_left h4,.heisebox_right h4{background-color:#eee;border-bottom:1px solid #999;color:#333;font-size:1em;margin:0;padding:.3em .75em;}.heisebox pre,.heisebox_left pre,.heisebox_right pre,.heisebox p,.heisebox_left p,.heisebox_right p{margin:.75em;}.bild_links,.bild_bu_links{float:left;line-height:105%;margin:12px 1.4em 12px 0;}.bild_rechts,.bild_bu{float:right;line-height:105%;margin:12px 0 12px 1em;text-align:right;}.bild_zentriert{clear:both;line-height:105%;margin:.2em auto;text-align:center;}span.bild_links,span.bild_rechts,span.bild_zentriert{display:block;}.quelle,.source{color:#666;font-size:80%;}.av-quelle{margin:3px 0;}.av-quelle,.source{color:#666;font-size:.75em;}.literaturhinweis dl{margin-top:0;}.literaturhinweis dt{float:left;text-align:right;width:2em;}.preisvergleich{font-size:90%;margin:1em;text-align:right;}.diagramm{border:1px solid #666;position:relative;}.diagramm .balken{background:#294781;color:#fff;display:block;font-size:80%;padding:1px 0;position:relative;text-align:center;}.messespecial{color:#c00;font-size:.8em;}.cebit,.systems,.ifa,.photokina,.computex,.ces,.messe{color:#c00;font-size:80%;}.seite,p.pagelist,.size80{font-size:80%;}.size120{font-size:120%;}.size10px{font-size:10px;}.size12px{font-size:12px;}div.werbung{color:#666;font-size:70%;margin-bottom:-1.2em;margin-top:-.5em;}.translation{font-size:.9em;margin-top:0;clear:both;}#schnipsel_edit{font:12px Arial,Helvetica,Verdana,sans-serif;left:10px;position:absolute;top:27px;}#schnipsel_edit a{background:red;color:#fff;padding:2px;}#schnipsel_edit a:hover{background:#00f;text-decoration:none;}.hinweis_anzeige{font-size:80%;margin:0;padding:0;text-align:right;}.contentbanner{margin-bottom:-.5em;margin-top:-.5em;}.sponsor{margin-bottom:-.2em;margin-top:-.2em;}.bcadv{clear:both;margin:0;text-align:center;}.heisebox .bcadv,.heisebox_left .bcadv,.heisebox_right .bcadv{display:none;}.cadv{float:right;margin-left:1em;}.bcadv img[width="1"],.bcadv img[width="2"],.cadv img[width="1"],.cadv img[width="2"],.contentbanner img[width="1"],.contentbanner img[width="2"],.sponsor img[width="1"],.sponsor img[width="2"],.sales img[width="1"],.sales img[width="2"],.adbottom img[width="1"],.adbottom img[width="2"],.leaderboard img[width="1"],.leaderboard img[width="2"],.heiseadvert img[width="1"],.heiseadvert img[width="2"],.skyscraper img[width="1"],.skyscraper img[width="2"],.naviad img[width="1"],.naviad img[width="2"],.teaser_adliste img[width="1"],.teaser_adliste img[width="2"],.oaszaehler{left:-999px;position:absolute;top:0;z-index:0;}.anzeigenlabel{font-size:9px;}.anzeigenlabel_links{float:left;font-size:9px;}.adbottom,.adbottom_itmarkt,.adbottom_jobs{clear:both;margin:0 1em 1em 18px;}.adbottom_itmarkt{border:1px solid #06c;max-width:400px;}.adbottom_itmarkt h4{background:#06c;color:#def;font-size:.8em;margin:0;padding-bottom:.2em;padding-left:1em;padding-top:.2em;}.adbottom_itmarkt p{font-size:.8em;margin-bottom:0;margin-right:1em;margin-top:.5em;padding-left:1em;}.adbottom_itmarkt ul{font-size:.8em;line-height:1.5em;list-style:circle;margin-bottom:.5em;margin-right:1em;margin-top:0;}.adbottom_jobs h4{background:#339;color:#FFF;margin:0;padding-bottom:.2em;padding-left:.2em;padding-top:.2em;}.adbottom_jobs a{color:#339;}/**/#heise_jobs_banner{font-family:Verdana,Arial,sans-serif;height:600px;overflow:hidden;padding:.15em;text-align:center;width:160px;}#heise_jobs_banner,.heise_jobs_banner_anzeige{background-color:#efefef;margin-bottom:.8em;}.heise_jobs_banner_anzeige p{color:#c30;font-family:Verdana,Arial,sans-serif;font-size:.73em;text-align:left;}.heise_jobs_banner_anzeige p.hl{margin-bottom:-.8em;}.heise_jobs_banner_anzeige p.hl a{color:#c30;font-weight:700;text-decoration:none;}.heise_jobs_banner_anzeige p.text a{color:#006;line-height:1em;text-decoration:none;}/**/#mitte_rechts .teaser_adtiles{clear:both;float:left;margin-top:10px;padding:10px;}#mitte_rechts .teaser_adtiles h6{color:#000;font-size:.7em;font-weight:400;margin:0 0 0 5px;padding:0;}#mitte_rechts .teaser_adtiles div.tile{background-color:#fff;border:1px solid #ccc;display:inline;float:left;height:125px;margin:3px;overflow:hidden;padding:2px;width:125px;}/**/.bcadv div#heise_bottom_4in1_banner{margin:0;}#heise_bottom_4in1_banner{ border:1px solid #039;border-top:0;clear:both;min-width:450px;padding:0;width:28em;}#heise_bottom_4in1_banner img.zaehler{position:absolute;}.heise_bottom_4in1_banner_anzeige{border-top:1px solid #06c;clear:both;height:65px;margin:0;padding:0;}.heise_bottom_4in1_banner_anzeige img{border:0;float:left;height:50px;margin:.5em .5em .2em .2em;width:75px;}.heise_bottom_4in1_banner_anzeige p{color:#000!important;font-family:Verdana,Arial,sans-serif!important;font-size:11px!important;font-style:normal!important;line-height:11px!important;margin-bottom:9px!important;margin-top:-8px!important;text-align:left!important;}.heise_bottom_4in1_banner_anzeige p.hl{font-weight:700!important;margin-top:.5em!important;font-style:normal!important;}.heise_bottom_4in1_banner_anzeige p a:visited{color:#06c!important;text-decoration:none!important;}/**/.heise_textad_fullclick{background-image:-moz-linear-gradient(center bottom,#ddd,#f9f9f9);background-image:-webkit-gradient(linear,center bottom,center top,from(#ddd),to(#f9f9f9));background-color:#eee;border:1px solid #06c;clear:both;min-width:474px;width:33.5em;height:65px;margin:0;padding:0 5px 0 0;}.heise_textad_fullclick:hover{-moz-box-shadow:0 0 5px #06c;-webkit-box-shadow:0 0 5px #06c;box-shadow:0 0 5px #06c;}.heise_textad_fullclick a{display:block;height:65px;}.heise_textad_fullclick a:hover{text-decoration:none!important;}.heise_textad_fullclick a span.hl{font-style:normal!important;font-weight:bold!important;margin-top:.5em!important;margin-bottom:5px;}.heise_textad_fullclick a span{color:#000!important;font:normal 11px/12px Verdana,Arial,sans-serif!important;text-align:left!important;display:block!important;}.heise_textad_fullclick a img{border-width:0;float:left;height:50px;margin:2px 7px 0;width:75px;}/**/#swvz_ad{width:120px;height:700px;border:1px solid #000000;background:#309dcd url(http://www.heise.de/support/sales/software/swvz_skyscraper/swvz_ad_verlauf.jpg) repeat-x scroll;font:normal 10px/13px Tahoma,Verdana,Arial,sans-serif;text-align:center;overflow:hidden;}#swvz_ad .hinweis{color:#000000;margin:0;padding:0 5px;}#swvz_ad #swvz_ad_header{margin-top:5px;padding-bottom:5px;border-bottom:1px solid #ffffff;}#swvz_ad ul{list-style-type:none;padding-left:0;margin-top:5px;margin-left:0;}#swvz_ad ul li{margin:0 0 15px;padding-left:0;color:#ffffff;}#swvz_ad ul li p{margin:5px 0 0;}#swvz_ad ul li p,#swvz_ad ul li h6{text-align:left;padding:0 5px;}#swvz_ad ul li h6{color:#000000;font:inherit;font-size:12px;font-weight:bold;margin:0 0 8px;}#swvz_ad ul li h6 a{text-decoration:none;color:#000000;}#swvz_ad ul li h6 a:hover{text-decoration:underline;}#swvz_ad ul li a{text-decoration:none;color:#ffffff;}#swvz_ad ul li a img{border:0;}#swvz_ad ul li .swvz_ad_link{text-align:right;margin-top:0;padding-top:0;}#swvz_ad ul li .swvz_ad_link a{text-decoration:underline;}/**//**/#navi_bottom{background:#eee;color:#000;padding:3px;white-space:nowrap;border-top:1px solid #999;bottom:-100px;clear:both;font:10px Arial,Helvetica,Verdana,sans-serif;height:1.2em;list-style:none;margin:0;padding-left:1em;position:relative;}#navi_bottom .right a,#navi_bottom .left a{margin-left:.5em;margin-right:.5em;}#navi_bottom .international{background:#eee;clear:both;display:block;}#navi_bottom a{background:#eee;color:#000;text-decoration:none;}#navi_bottom a:hover{background:#333;color:#fff;}#navi_bottom .international a:hover{background:#eee;color:#039;text-decoration:underline;}#navi_bottom li.international{margin-left:-1.5em;margin-right:-.3em;padding-left:1.5em;padding-right:.3em;}* +html #navi_bottom li.international{width:100%;}#navi_bottom .bid_anzeige{float:left;margin-left:1em;color:#aaa;}/**/#container{margin:0;min-width:960px;padding:0;position:relative;width:64em;}#container_content{background:#fff;float:left;left:0;min-width:730px;position:relative;top:100px;width:60em;}#links{background:#fff;float:left;margin-bottom:2em;min-width:140px;width:10em;}#mitte{background:#fff;float:right;margin-bottom:2em;min-width:540px;padding-right:.5em;width:48em;}#mitte #mitte_links{float:left;min-width:360px;width:70%;}#mitte #mitte_rechts{float:right;width:27%;}#bannerzone{height:100px;left:0;margin:0;padding:0;position:absolute;top:0;}#bannerzone .leaderboard{border-top:1px solid transparent;margin:0 5px 0 0;min-width:730px;padding:0;position:relative;top:3px;width:60em;}#bannerzone .leaderboard img[width="468"],#bannerzone .leaderboard img.banner468{margin-top:15px;}#bannerzone .heiseadvert{margin:0 5px 0 0;min-width:730px;padding:0;position:absolute;top:20px;width:60em;}#bannerzone .skyscraper{left:100%;margin:0;padding:0;position:absolute;top:100px;}/**/ * html body,* html td,* html th,* html input,* html select{font-size:16px;}* html #bannerzone .heiseadvert{position:relative;}* html #bannerzone .skyscraper{left:60em;}* html #navi_bottom{bottom:0;float:left;margin-top:100px;width:100%;}* html table.border{border-right:1px solid #333;}/**/#navi_login{font-size:90%;line-height:110%;margin:0 0 1em;padding:0;white-space:nowrap;}#links .farbe{font-size:.9em;margin:1em 0;padding:.5em .2em 1em .5em;}#links .farbe h4{margin:1em 0 .2em;white-space:nowrap;}#links .farbe ul{list-style:none;margin-left:.2em;margin-top:0;padding-left:.2em;}#links .farbe li{margin:.1em 0;}/**/#mitte_rechts h4{margin-bottom:.3em;margin-top:.5em;}#mitte_rechts ul{list-style:none;margin:.2em;padding-left:.2em;}#mitte_rechts li{margin:.5em .3em .8em .5em;}#mitte_rechts p{margin:1em .5em;}/**/#mitte .ueberschrift{font-size:1.2em;padding-bottom:.1em;padding-top:10px;}#mitte_links .anriss,#mitte_links h4{line-height:1.2em;margin-bottom:0;}#mitte_links .size90{font-size:.9em;margin-top:.1em;}#mitte_links .anriss .datum{color:#666;font-size:85%;font-weight:400;}#mitte_links .anriss_mit_bild_links img{float:left;margin-right:15px;margin-top:3px;padding-bottom:5px;}#mitte_links .anriss_mit_bild_rechts img{float:right;margin-left:15px;margin-top:3px;padding-bottom:5px;}#mitte_links .anriss_mit_bild_links p,#mitte_links .anriss_mit_bild_rechts p{margin-bottom:0;}#mitte_links .anriss_mit_bild_links,#mitte_links .anriss_mit_bild_rechts{clear:both;padding-top:12px;}#mitte_links h4.more_link{clear:both;padding-top:1em;}#mitte_links .anriss_mit_bild_links h3 img{float:none;margin:0;padding:0 5px;}#mitte_links .anriss_mit_bild_links a:hover,#mitte_links .anriss_mit_bild_links a p:hover,#mitte_links .anriss_mit_bild_rechts a:hover,#mitte_links .anriss_mit_bild_rechts a p:hover,#mitte_rechts .anriss_mit_bild_links a:hover,#mitte_rechts .anriss_mit_bild_links a p:hover,#mitte_rechts .anriss_mit_bild_rechts a:hover,#mitte_rechts .anriss_mit_bild_rechts a p:hover,#cycleteaser1 .position_1 a:hover{text-decoration:none;}#mitte_links .anriss_mit_bild_links h3 a:hover,#mitte_links .anriss_mit_bild_rechts h3 a:hover,#mitte_rechts .anriss_mit_bild_links h3 a:hover,#mitte_rechts .anriss_mit_bild_rechts h3 a:hover,#cycleteaser1 .position_1 h2 a:hover,#cycleteaser1 .position_1 .titelzeile a:hover{text-decoration:underline;}#mitte_links .anriss_mit_bild_links a p,#mitte_rechts .anriss_mit_bild_links a p,#cycleteaser1 .position_1 a p{color:#151515;}/**/.artikel_archiv td{font-size:.9em;padding:0 0 3px;}.artikel_archiv td.rubrik,.artikel_archiv td.datum{font-size:0.8em;white-space:nowrap;padding-left:12px;vertical-align:top;}.artikel_archiv_navi{font-size:0.9em;}.kurzliste{font-size:90%;margin-bottom:1.5em;}.kurzliste p{margin:.5em 0;}.news_datum,.artikel_datum{float:left;font-size:80%;margin-bottom:1em;}.news_navi,.artikel_navi{float:right;font-size:80%;margin-bottom:1em;}.artikel_navi_folgeseite{float:right;font-size:80%;margin-bottom:1em;margin-top:0;}.artikel_navi_toc,.navi_toc{float:right;font-size:90%;padding-bottom:1em;padding-left:1em;width:13em;}.navi_toc ol{list-style:none;padding:0;}.news_option,.artikel_option{clear:both;float:left;font-size:80%;}.themen_foren{float:right;margin-top:0;}.hilfe_foren{float:left;margin-top:0;}.themen_foren a,.hilfe_foren a{font-weight:bold;}.news_foren,.artikel_foren{float:left;margin-top:0;}.news_foren p,.artikel_foren p{margin-top:0;}.news_archiv a.news_navi,a.news_navi{float:none;}.news_archiv table td{vertical-align:top;}#mail_formular{background:#eee;font-size:90%;padding:.2em 1em;}.meldung_wrapper .art_datum{font-size:80%;margin-bottom:1em;}.meldung_wrapper .art_autor{font-style:italic;font-weight:400;margin-bottom:.5em;}.related_items{margin:0;padding:0;clear:both;}.related_items h4{padding:0;font-size:0.9em;margin:0;font-weight:normal;}.related_items ul{margin:0;padding:0;font-size:0.9em;list-style:none;}.related_items ul li{background:url(http://www.heise.de/icons/ho/related-items.gif) no-repeat left top;padding-left:20px;margin-top:0.2em;margin-bottom:0.2em;}.themenseiten{margin:1em 0 3em 0;padding:0;font-size:0.9em;}.themenseiten a{font-weight:bold;margin-left:6px;text-decoration:none;color:#039;}.themenseiten a:hover{text-decoration:underline;}#mitte_news .news_foren{text-align:right;}#mitte_news a.audiolink,#mitte_links a.audiolink{background:transparent url(http://www.heise.de/icons/ho/audio.gif) no-repeat left center;padding-left:20px;}#mitte_news a.videolink,#mitte_links a.videolink{background:transparent url(http://www.heise.de/icons/ho/video.gif) no-repeat left center;padding-left:20px;}.readspeaker{clear:both;font-size:1.2em;margin:0 0 .3em 2px;}b.update{padding-left:5px;text-transform:uppercase;font-size:.8em;color:#888;}/**/#mitte_zoom{margin:15px;}.zoom_navi{margin-bottom:10px;}/**/#bilderstrecke{margin-left:auto;margin-right:auto;width:632px;}#bilderstrecke .navi_oben,#bilderstrecke .navi_unten{background:#eee;border-left:1px solid #e1e1e1;border-right:1px solid #e1e1e1;font-size:.9em;height:1.3em;padding:.2em;text-align:center;}#bilderstrecke .navi_oben{border-top:1px solid #aaa;}#bilderstrecke .navi_unten{border-bottom:1px solid #aaa;}#bilderstrecke .navi_oben img{margin:0 6px;}#bilderstrecke .navi_oben a,#bilderstrecke .navi_unten a{color:#000;padding:2px;text-decoration:none;}#bilderstrecke .navi_oben a:hover,#bilderstrecke .navi_unten a:hover{color:#039;text-decoration:underline;}#bilderstrecke .navi_oben .nummer a,#bilderstrecke .navi_oben .nummer b{padding:0 4px;}#bilderstrecke .navi_oben .nummer b{background:#c00;color:#fff;}#bilderstrecke .navi_oben .links,#bilderstrecke .navi_unten .links{float:left;text-align:left;}#bilderstrecke .navi_oben .rechts,#bilderstrecke .navi_unten .rechts{float:right;text-align:right;}#bilderstrecke .navi_oben .rechts,#bilderstrecke .navi_oben .links{white-space:nowrap;width:15%;}#bilderstrecke .navi_oben .nummer{float:left;width:69%;}#bilderstrecke .navi_unten .rechts,#bilderstrecke .navi_unten .links{margin:.2em 6px;width:30%;}#bilderstrecke .bild{border-left:1px solid #e1e1e1;border-right:1px solid #e1e1e1;clear:both;margin:0;text-align:center;width:630px;}#bilderstrecke .bild img{margin:12px auto;}#bilderstrecke .bild .source{color:#999;display:block;font-size:.8em;margin-top:-6px;padding-bottom:10px;padding-right:14px;text-align:right;}#bilderstrecke p{clear:both;font-size:.9em;font-weight:700;text-align:center;}#bilderstrecke_vorschau{background:#eee;clear:both;margin:5px auto;padding:5px;width:390px;}* html #bilderstrecke_vorschau,* +html #bilderstrecke_vorschau{width:400px;}#bilderstrecke_vorschau h4,#bilderstrecke_vorschau p{margin:0 0 0 5px;}#bilderstrecke_vorschau .bilder{margin:5px 0 5px 5px;}#bilderstrecke_vorschau .bilder img{margin-right:5px;}/**/#av_inhalte{margin:1em auto;width:640px;}#av_inhalte h2{color:#666;font-size:.8em;margin-bottom:0;text-align:center;}/**/#suchfeld fieldset{border:none;margin:0;padding:0 10px 10px;}#suchfeld legend{color:#151515;display:block;font-size:.9em;font-weight:700;line-height:.9em;margin-left:0;padding-left:0;}#suchfeld input.textfield,#suchfeld_foren input.textfield{background-color:#fffef8;border:1px solid #c1c1c1;margin-left:0;margin-right:2px;width:6.8em;}#suchfeld input.search_submit,#suchfeld_foren input.search_submit{background-color:#535353;border:none;color:#fff;padding:1px 4px;}* html #suchfeld input.textfield,* +html #suchfeld input.textfield{width:6.6em;}/**/#breadcrumb{border-bottom:1px solid #ccc;font-size:.8em;font-weight:400;margin:0 0 10px;padding:6px 0 0;white-space:nowrap;}#breadcrumb .rsaquo{font-family:Tahoma;font-size:1.2em;margin:0 6px;}#breadcrumb .bread_gt{font-family:"Trebuchet MS";font-size:1em;margin:0 3px;}/**/.aktion{background:#c30;border-bottom:solid #600 1px;border-left:solid #f99 1px;border-right:solid #600 1px;border-top:solid #f99 1px;color:#fff;font-size:80%;font-weight:700;vertical-align:1px;}/**/html,body,.leaderboard table *,.heiseadvert table *,#links .farbe form,#links .farbe form div,#links #search_plugin,#links #search_plugin p{margin:0;padding:0;}.clear,hr,.meldung_wrapper,.meldung_wrapper pre{clear:both;}table,img,fieldset,.ISI_IGNORE td{border:none;}.adbottom,#mitte .forum_content{margin-top:1em;}#navi_bottom li.international span,#links .logo{margin-left:.5em;}#bilderstrecke h2,#av_inhalte h1{font-size:1.2em;text-align:center;}#links .farbe form input,#mitte_rechts,#mitte_rechts .size80{font-size:.9em;}.bildunterschrift,.adbottom_jobs td,.zoom_navi a,#bilderstrecke_vorschau p,.permalink,#mitte_news p.permalink{font-size:.8em;}p .bild_links .bildunterschrift,p .bild_rechts .bildunterschrift{font-size:.9em;}p .bild_links .bildunterschrift a img,p .bild_rechts .bildunterschrift a img{vertical-align:middle;}.literaturhinweis,.size90,#links #search_plugin,.news_archiv td,.news_archiv th,.artikel_archiv td.link{font-size:90%;}.adbottom_itmarkt a,.news_archiv a{font-weight:700;}a,p.pagelist a,a.ohne,.artikel_navi a,.artikel_navi_toc a,.artikel_navi_folgeseite a,.news_navi a,.translation a,#bilderstrecke_vorschau a,.zoom_navi a,#mitte_news .related_items a,.preisvergleich a,a[name],.meldung_wrapper a[name]{text-decoration:none;}.meldung_wrapper a,a:hover,.artikel_navi a:hover,.artikel_navi_toc a:hover,.artikel_navi_folgeseite a:hover,.news_navi a:hover,.translation a:hover,#bilderstrecke_vorschau a:hover,.zoom_navi a:hover,#mitte_news .related_items a:hover,.heise_jobs_banner_anzeige p.hl a:hover,.heise_jobs_banner_anzeige p.text a:hover,.heise_bottom_4in1_banner_anzeige p a:hover{text-decoration:underline;}.tx_rot,.suchwort,.tx_red{color:#c00;}.tx_gruen,.tx_green{color:#0c0;}.tx_blue{color:#00c;}.tx_cyan{color:#0cc;}.tx_magenta{color:#c0c;}.tx_smaller{font-size:80%;}.tx_larger{font-size:120%;}.tx_caps{font-variant:small-caps;}p.indent{margin-left:25px;margin-right:25px;}p.leadtext{font-weight:bold;}p.meinung,p.meinung_links,p.meinung_rechts{border:1px solid #ccc;border-radius:1em;-moz-border-radius:1em;-webkit-border-radius:1em;padding:1% 2%;font-size:80%!important;background:#EFEFEF;overflow:auto;}p.meinung_links{width:35%;margin:0 3% 0 0;float:left;}p.meinung_rechts{width:35%;margin:0 0 0 3%;float:right;}p.meinung .bild_links{margin:1% 3% 1% 0;}p.meinung .bild_rechts{margin:1% 0 1% 3%;}p.meinung_links .bild_links,p.meinung_links .bild_rechts,p.meinung_rechts .bild_links,p.meinung_rechts .bild_rechts{float:none;margin:1% 0;display:block;width:100%!important;text-align:left;}.player .flasherror,.player .flasherror{border:1px dashed #999;padding:1em;}.player .video_id{font-size:70%;color:#999;line-height:0;margin-top:3px;}.player .video_titel{font-size:85%;color:#555;margin-bottom:1em;line-height:normal;width:480px;}span.player-video{margin:1em 0;}a.player-audio{padding-left:18px;background:url(http://www.heise.de/icons/ho/audio.gif) left center no-repeat;}#mitte_multimedia,div.player-video{margin:1em 1em 10em 1em;}#social_bookmarks{margin-top:1em;clear:both;}#social_bookmarks a{margin-right:10px;}.link_farbe:visited,#links a,.news_navi a,.news_option a,.news_foren a,.artikel_foren a,.artikel_navi a,.artikel_navi_toc a,.artikel_navi_folgeseite a,.artikel_option a,p.themen_foren a,.zoom_navi a,#navi_bottom .international a,#navi_bottom .international a:hover,#mitte_rechts b a,#mitte_rechts #filter a:visited,#mitte_rechts .services a:visited,#av_inhalte .zurueck a:visited,#links .farbe a{color:#039;}.adbottom_itmarkt h4 a,.adbottom_jobs h4 a,.tx_weiss{color:#fff;}.heise_bottom_4in1_banner_anzeige p a,.heise_bottom_4in1_banner_anzeige p a:link,.heise_bottom_4in1_banner_anzeige p a:active,#navi_bottom .international a{color:#039;text-decoration:none;}#mitte_rechts h4 a,#mitte .ueberschrift a{color:#151515;}/**/#mitte_uebersicht .keywordliste p{margin-top:0;}#mitte_uebersicht .keywordliste .anriss_mit_bild_links{clear:none;overflow:auto;padding-top:12px;}#keywordbox{width:8em;float:right;padding:12px 0 10px 20px;}#keywordbox h4{font-size:.8em;margin:0 0 10px;font-weight:bold;}#keywordbox ul{list-style:none;margin:0 0 30px;padding:0;font-size:.8em;line-height:1.3;}/**/.tage div{margin-bottom:.3em;margin-left:1em;}.tage h4{margin-bottom:.2em;}.weekday{background:#eee;padding:1px;}.sunday{background:#cde;padding:1px;}/**/.tage .published{font-size:90%;font-weight:bold;margin:1em 0 0 0;}.tage ul{list-style:none;margin:0;padding:0;}.tage li{margin:0.4em 0;font-size:90%;}.tage .weitere{text-align:right;font-size:90%;}/**/.tage .weitere_wochen,.archiv_kalender .weitere_jahre,.archiv_kalender_hinweis{font-size:90%;}.archiv_kalender_hinweis{font-size:80%;margin-top:0;}.archiv_kalender table{font-size:90%;border-collapse:collapse;border-spacing:0 0;}.archiv_kalender table td,.archiv_kalender table th{vertical-align:top;font-family:"Courier New",monospace;padding-left:0;padding-right:1.5em;}.archiv_kalender table td pre{margin-top:0.3em;font-family:"Courier New",monospace;}.archiv_kalender .weekday,.archiv_kalender .sunday{background:#eee;color:#151515;padding:1px;}.archiv_kalender .sunday{background:#def;}/**/.nachricht a,.weitere a,.weitere_wochen a,.weitere_jahre a,.archiv_kalender table a{color:#039;}/**/#newsletter .newsletter_info{background:#fefdf6;border:1px solid #a3b2d0;color:#333;padding:10px 20px;}#newsletter .newsletter_info p{font-size:0.9em;}
+</style>
+
+<style type="text/css" style="display:none">#navi_top_container{background:#fff url("http://www.heise.de/icons/ho/background_navi_top.gif") repeat-x 0 0;border-bottom:1px solid #EBE9EA;border-top:1px solid #f6f6f6;}#navi_top{font:12px Arial,Helvetica,Verdana,sans-serif;width:86em;min-width:860px;color:#000;margin:0 auto;padding:0;overflow:auto;white-space:nowrap;}#navi_top .navi_top_logo{float:left;width:10.5em;min-width:124px;line-height:3.1em;}#navi_top .navi_top_logo a{margin:0;}#navi_top .navi_top_logo img{vertical-align:middle;}#navi_top ul,#navi_top ul li{display:inline;list-style:none;margin:0;padding:0;}#navi_top ul{text-align:center;}#navi_top ul li{background:url("http://www.heise.de/icons/ho/midot.gif") no-repeat 0 0;}#navi_top ul li.first{background:none;}#navi_top a{color:#252525;margin-left:10px;padding:.1em .3em;text-decoration:none;}#navi_top .first a{margin-left:3px;}#navi_top span{color:#666;font-weight:700;padding:0 3px;}#navi_top span,#navi_top .nur_sitemap{display:none;}#navi_top .erste_zeile,#navi_top .zweite_zeile{float:left;margin:0;padding:.3em .2em;white-space:nowrap;border-bottom:1px solid #EBE9EA;}#navi_top .zweite_zeile{border-bottom:none;}#navi_top .erste_zeile a{color:#039;}#navi_top a:hover{background:#333;color:#fff;}#navi_top .erste_zeile a:hover,#navi_top .zweite_zeile a:hover{color:#fff;}#navi_top .navi_top_logo a:hover{background:transparent;}#adblockerwarnung{position:absolute;top:75px;left:20%;padding:1em;text-align:center;border:1px solid #333;background:#fff;display:none;z-index:50;}#adblockerwarnung a{font-weight:bold;color:#039;}
+</style>
+
+
+
+
+
+<style type="text/css" style="display:none">/**/body{background:#4e4e4e;}#navi_top .navi_oben_dev{font-weight:700;}#container{margin:0 auto;}#container,#container_content,#bannerzone .leaderboard,#bannerzone .heiseadvert{min-width:950px;}#container_content{background:#6d1124 url('http://www.heise.de/developer/icons/background_container.gif') repeat-x;}a,a:link,a:visited,.anrissliste a,.anriss a:hover,.teaser_frei a:hover,#mitte_rechts .teaser_themen h4 a:hover,#mitte_rechts .teaser_podcast h4 a:hover,#mitte_rechts .teaser_blogs h4 a:hover,#mitte_rechts .teaser_frei h4 a:hover,#mitte_uebersicht .weitere a,#mitte_uebersicht .tage a,#mitte_text .weitere a,#mitte_artikel .artikel_option a,#mitte_news .news_foren a,#mitte_news .permalink a,#mitte_news #bilderstrecke_vorschau a{text-decoration:none;}a:hover,a:active,.news_navi a:hover,a.news_navi:hover,.artikel_navi a:hover,.meldung_wrapper a,.anriss h3 a:hover,.anriss h1 a:hover,.teaser_frei h3 a:hover,#mitte_uebersicht .weitere a:hover,#mitte_uebersicht .tage a:hover,#mitte_text .weitere a:hover,#mitte_news .news_foren a:hover,#mitte_news .permalink a:hover,#mitte_news #bilderstrecke_vorschau a:hover,#bilderstrecke .navi_oben a:hover{text-decoration:underline;}img,a,a:link,a:active{outline:none;}h1,h2{line-height:115%;color:#012469;}.subheading{font-size:0.9em;color:#548CDF;margin:0.5em 0 0;padding:0 0 0.5em;}#mitte_text .subheading{margin:0 -18px;padding:1em 18px;border-top:1px solid #fff;background:transparent url("http://www.heise.de/developer/icons/background_mitte_links.gif") repeat-x top left;}#mitte_artikel .subheading{font-size:1.1em;color:#548CDF;margin:1.5em 0 0;padding:0;}/**/ * html #mitte_text .subheading{background:none;border-top:1px solid #ccc;}#logo_bereich{padding:17px 0 0 0;float:left;display:inline;width:100%;}#logo_bereich #logo{float:left;display:inline;margin:0;padding:0 0 0.75em 18px;}#logo_bereich ul#navigation_meta{float:right;margin:0 5px 0 0;padding:0;list-style:none;font-size:0.75em;}#logo_bereich ul#navigation_meta li{float:left;display:inline;margin:0 15px 0 0;padding:0;}#logo_bereich ul#navigation_meta li a{font-weight:bold;color:#fff;}#navi_login{float:right;font-size:0.7em;margin:0.25em 0 0 0;padding:0 0 0 1em;color:#fff;}#navi_login b{padding-right:1.3em;margin-right:0.3em;font-weight:normal;background:url("http://www.heise.de/developer/icons/midot_weiss.gif") no-repeat top right;}#navi_login a{color:#fff;}form#suchfeld{float:right;font-size:0.75em;margin:0 20px 6px 2em;color:#333;}#suchfeld input.textfield{font-size:90%;width:11em;border:1px solid #fff;}#suchfeld input.search_submit{font-size:90%;background-color:#1b3059;}#suchfeld input.search_hidden{position:relative;z-index:-10;}#breadcrumb a{color:#3d526d;}#breadcrumb{background-color:#d0d0c9;clear:both;margin:0;padding:0.1em 18px;color:#666;font-size:0.75em;font-weight:normal;}#breadcrumb .rsaquo{line-height:0.75em;font-size:1.1em;color:#fff;margin:0 3px;}#breadcrumb .bread_gt{color:#fff;}.error,.suchwort{color:#c03!important;}.news_foren,.news_foren a{clear:both;color:#039;}#mitte_news p.permalink{clear:both;margin-bottom:5px;}.podcast_option{margin:1.5em 0 0.5em;}.podcast_option a{font-weight:bold;margin-right:2em;}.podcast_option a.rss{background:#fff url("http://www.heise.de/developer/icons/icon_rss.gif") left center no-repeat;padding-left:18px;}.podcast_foren{border-width:1px 0;border-style:solid;border-color:#c5d2db;clear:both; font-weight:bold;color:#039;margin:1em 0;padding:1em 0 1.2em;}.podcast_foren a{background:#fff url("http://www.heise.de/developer/icons/icon_forum.gif") left center no-repeat;padding-left:23px;font-weight:bold;color:#039;}.art_autor{font-style:italic;font-weight:normal;}/**/#mitte_links .anriss p a,#mitte_links .anriss_mit_bild_links p a,#mitte_links .anriss_blog_eintrag p a,/**/#mitte_rechts .anriss p a,#mitte_rechts .teaser_frei p a{color:#151515;outline:none;}#mitte_links p a .mehr_schnipsel,#mitte_rechts p a .mehr_schnipsel{color:#039!important;}#mitte_links p a:visited .mehr_schnipsel,#mitte_rechts p a:visited .mehr_schnipsel{color:#666!important;}#mitte_links .anriss_blog_eintrag p.datum a{color:#666;}#mitte_links .anriss p a:hover,#mitte_links .anriss_mit_bild_links p a:hover,#mitte_links .anriss_blog_eintrag p a:hover,/**/#mitte_rechts .anriss p a:hover,#mitte_rechts .teaser_frei p a:hover{text-decoration:none;}/**/#mitte{width:60em;min-width:950px;color:#151515;padding:0;margin:0;background:#fff url("http://www.heise.de/developer/icons/background_mitte_36zu64.gif") 64% 0 repeat-y;}#mitte #mitte_links{width:64%;overflow:hidden;background:transparent url("http://www.heise.de/icons/ho/background_mitte_links.gif") repeat-x top left;position:relative;}#mitte #mitte_rechts{width:36%;min-width:336px;float:left;display:inline;overflow:hidden;position:relative;}/*--*/#navigation{float:left;display:inline;clear:both;margin:0;padding:0;width:100%;white-space:nowrap;}#navigation ul{margin:0 0 0 0.7em;padding:0;list-style-type:none;float:left;display:inline;}#navigation li{float:left;display:inline;margin:0;padding:0;}#navigation li a{color:#fff;font-size:0.9em;padding:2px 6px;margin:0;}#navigation li.aktiv a{color:#b0dfe5;}#navigation .zweite_ebene{background:#ebebe2;font-size:0.75em;width:100%;color:#dfdfdf;}#navigation .zweite_ebene a{font-weight:bold;margin-left:18px;color:#555555;line-height:200%;}#navigation a:hover{color:#968760;text-decoration:none;}/**/#mitte #mitte_rechts form{width:336px;margin:0 auto;padding:0 0 0 2px;}#mitte #mitte_rechts table td{padding:0;}#mitte #mitte_rechts #msdn_heise_SL_teaser{left:auto!important;}#mitte_rechts .teaser_themen,#mitte_rechts .teaser_podcast,#mitte_rechts .teaser_blogs,#mitte_rechts .teaser_frei{padding:4px 12px;clear:both;overflow:auto;}#mitte_rechts .teaser_themen h4 a,#mitte_rechts .teaser_podcast h4 a,#mitte_rechts .teaser_blogs h4 a,#mitte_rechts .teaser_frei h4{color:#548CDF;border-bottom:1px solid #D0D0C9;display:block;}#mitte_rechts .teaser_themen h3,#mitte_rechts .teaser_podcast h3,#mitte_rechts .teaser_blogs h3,#mitte_rechts .teaser_frei h3{font-size:90%;line-height:115%;}#mitte_rechts .teaser_themen h3 a,#mitte_rechts .teaser_podcast h3 a,#mitte_rechts .teaser_blogs h3 a,#mitte_rechts .teaser_frei h3 a{color:#603;}#mitte_rechts .teaser_themen p,#mitte_rechts .teaser_podcast p,#mitte_rechts .teaser_blogs p,#mitte_rechts .teaser_frei p{margin:0.1em 0 1em 0;font-size:85%;}#mitte_rechts .teaser_themen img,#mitte_rechts .teaser_podcast img,#mitte_rechts .teaser_frei img{float:left;margin:2% 4% 2% 0;}#mitte_rechts .anriss p{overflow:auto;}/**//**/#mitte_uebersicht{min-height:600px;padding-bottom:2em;}/**/ * html #mitte_uebersicht{padding-bottom:10em;}/**/ * +html #anrissliste,* +html #mitte_uebersicht{width:97%;}#mitte_artikel,#mitte_eventkalender,#mitte_forum,#mitte_news,#mitte_suche,#mitte_text,#mitte_uebersicht{margin:19px 18px 0;}/**/ * html #mitte_artikel,* html #mitte_eventkalender,* html #mitte_forum,* html #mitte_news,* html #mitte_suche,* html #mitte_text,* html #mitte_uebersicht{padding:0;}#mitte_text h1.ueberschrift{font-size:1.1em;}#mitte_uebersicht h1.ueberschrift{font-size:1.1em;padding-bottom:1em;}#mitte_uebersicht h2{color:#999;font-size:1.1em;padding:5px 0 1em;margin:0;}#mitte_uebersicht h3{color:#039;margin:0;}#mitte_text h2{font-size:1.1em;padding-bottom:1em;}#mitte_uebersicht .intro,#mitte_text .intro{padding-bottom:1.5em;}#mitte_uebersicht .intro h1,#mitte_text .intro h1{color:#999;font-size:1.1em;padding-bottom:0;margin:0;}#mitte_artikel .intro h1{color:#999;font-size:1.35em;padding-bottom:0;margin:0;}#mitte_uebersicht .intro h5,#mitte_artikel .intro h5,#mitte_text .intro h5{color:#333;margin:0.5em 0 0;}#mitte_uebersicht .intro p,#mitte_text .intro p{margin:0;padding:1em 0 0;}#mitte_uebersicht .tage{font-size:0.95em;margin-bottom:1em;margin-top:-1.5em;}#mitte_uebersicht .tage h4{color:#603;font-size:0.8em; margin:1.5em 0 0.5em;padding:0;}#mitte_uebersicht .anriss_rubrik,#mitte_uebersicht .anriss_blog{margin:0 -18px;padding:1em 18px 0.5em;border-bottom:1px solid #ccc;}#mitte_uebersicht .anriss_rubrik h1,#mitte_uebersicht .anriss_rubrik h1 a{font-size:1em;color:#548cdf;}#mitte_uebersicht .anriss_blog h1,#mitte_uebersicht .anriss_blog h1 a{font-size:1.2em;color:#548cdf;}#mitte_uebersicht .anriss_blog h1 span,#mitte_uebersicht .anriss_blog h1 span a{color:#666;font-size:92%;font-weight:normal;}#mitte_uebersicht .anriss_rubrik ul,#mitte_uebersicht .anriss_blog ul,#mitte_uebersicht .anriss{list-style:none;margin:0;padding:0;}#mitte_uebersicht .anriss_blog ul{margin-left:90px;}#mitte_uebersicht .anriss_rubrik li,#mitte_uebersicht .anriss_blog li,#mitte_uebersicht .anriss li{background:transparent url("http://www.heise.de/developer/icons/midot_grau.gif") no-repeat 0 2px;padding-left:10px;color:#1a3059;font-size:1.1em;}#mitte_uebersicht .anriss_rubrik p.weitere,#mitte_uebersicht .anriss_blog p.weitere{margin:0;padding:0;text-align:right;font-size:0.95em;}#mitte_uebersicht .anriss_blog img{border:1px solid #eee;float:left;}#mitte_uebersicht .anriss_blog p.clear{height:15px;margin:0;padding:0;}#mitte_uebersicht .weitere{font-size:0.75em;padding-top:1em;font-weight:normal;text-align:right;}#mitte_uebersicht .anriss_blog h3{font-size:1.3em;margin:0;padding:0;}/**/ * html #mitte_uebersicht .anriss_blog p{margin-top:0;}#mitte_uebersicht .anriss_blog .datum{color:#666;font-size:0.9em;line-height:2;margin:0;}#mitte_uebersicht .rss{margin:0 2px;}#mitte_text .weitere{text-align:right;margin:0 -18px;padding:1.5em 18px 1em;}#mitte_text .autoreninfo h3{color:#012469;margin-bottom:0.5em;}.meldung_wrapper {clear:none;}.meldung_wrapper ul{left:1em;padding-left:2em;margin-left:0;padding-right:5px;}* +html .meldung_wrapper ul{/**/left:16px;}* html .meldung_wrapper ul{/**/position:static;}.meldung_wrapper .bild_links{position:relative;z-index:10;}.meldung_wrapper_newsgroups h5{margin-bottom:0;}.meldung_wrapper_newsgroups li{color:#1A3059;margin:0 2em;}.meldung_wrapper_newsgroups span.bild_links{display:inline;float:none;margin:0 3px 0 0;}.heisebox,.heisebox_left,.heisebox_right{border:1px solid #a8b2c0;}#mitte_artikel .heisebox h4,#mitte_artikel .heisebox_left h4,#mitte_artikel .heisebox_right h4,.heisebox h4,.heisebox_left h4,.heisebox_right h4{color:#3d526d;background-color:#E2EDFB;border-bottom:1px solid #a8b2c0;margin-top:0;}.podcast_nachricht h6{font-size:1em;margin:0 0 0.25em;font-weight:normal;}.podcast_nachricht h5.telefon{color:#333;display:block;font-size:1.6em;font-weight:bold;background:#fff url("http://www.heise.de/developer/icons/icon_telefon.gif") left center no-repeat;padding:0.25em 0 0.25em 50px;margin:0;}.podcast_nachricht a.email{display:block;background:#fff url("http://www.heise.de/developer/icons/icon_email.gif") 4px center no-repeat;padding:0.25em 0 0.25em 52px;margin:1em 0 0;}/**/#anrissliste #anrissliste_links,#anrissliste #anrissliste_rechts{float:left;display:inline;overflow:hidden;width:49.9%;}#anrissliste h4{font-size:0.8em;margin:1em 18px 0;color:#603;}#anrissliste p.clear{height:1px;margin:0;padding:0;}#anrissliste .anriss,#anrissliste .weitere{margin:0.5em 18px;}#anrissliste .weitere{font-size:0.7em;text-align:left;}#anrissliste .anriss p a:visited{color:#936975;}/*--*/#mitte_news .news_option a,#mitte_artikel .artikel_option a{background-color:#fbfbf3;padding:0.3em 0.25em;color:#888!important;}#mitte_news .news_option a:hover,#mitte_artikel .artikel_option a:hover{background-color:#f1f1df;text-decoration:none;}#anrissliste p,#mitte_news p,#mitte_news div>ul,#mitte_text p,#mitte_text div>ul,#mitte_uebersicht p{margin:0.25em 0 1.3em;padding:0;font-size:0.8em;}#mitte_news div>ul{padding-left:1.5em;}#mitte_news div.related_items>ul{padding-left:0;}#mitte_news li,#mitte_text li{margin-top:0.2em;margin-bottom:10px;line-height:1.3;}#mitte_uebersicht .anriss li{margin-top:0.2em;margin-bottom:0.2em;}#mitte_news .rsaquo,#mitte_text .rsaquo,#mitte_uebersicht .rsaquo,#mitte_artikel .rsaquo{font-family:Tahoma;font-size:1em;}#mitte_text img.autor{border:1px solid #eee;display:inline;float:left;margin:0 10px 5px 0;}.anrissliste{margin:0 -18px;padding:2em 18px 0;border-top:1px solid #fff;}#mitte_artikel .artikel_option{color:#e2e2e2;margin-bottom:1em;font-size:1em;}#mitte_news .news_option{margin-bottom:1em;margin-top:0;color:#e2e2e2;}#mitte_news .news_navi,.artikel_navi{color:#999;margin:0;padding:0;}#mitte_artikel #keywords{font-size:0.9em;color:#666;margin-top:-12px;}#mitte_artikel #keywords a{color:#1A3059;}#mitte_news .news_datum{font-size:0.7em;}.news_datum{margin-top:19px;}.news_datum,.artikel_datum,.podcast_datum{float:none;display:block;}#archiv_kalender table{border-spacing:0 0;border-collapse:collapse;}#archiv_kalender td{font-size:0.85em;margin:0;padding:0 10px 0 0;}#archiv_kalender td pre{font-family:"Courier New";font-size:0.95em;}.sunday{background:#E2EDFB;}/**/#mitte_artikel{padding-bottom:0.5em;}* html #mitte_artikel{padding-bottom:1em!important;}.hinweis{background:transparent url('http://www.heise.de/developer/icons/background_hinweis.gif') repeat-x left bottom;margin:0 -18px;padding:0 18px 0.5em;}/**/ * html .hinweis{background:none;padding-bottom:0;}#mitte_artikel .artikel_datum{font-size:0.9em;margin-top:0;}#mitte_artikel .podcast_datum{color:#666;font-size:0.9em;margin:1em 0 0;}.artikel_datum b{margin-right:0.75em;}.artikel_navi{float:none;text-align:right;clear:both;}.artikel_navi .pagination b{background-color:#d60a45;padding:0.1em 0.3em;color:#fff;font-weight:bold;}.artikel_navi .links{padding-right:1em;}.artikel_navi .rechts{padding-left:1em;}#mitte_artikel .navi_toc{margin-top:0;margin-left:1em;}.navi_toc ol{margin:0;}#mitte_artikel h1{color:#333;font-size:1em;margin:0.3em 0;}#mitte_artikel h1.ueberschrift,#mitte_artikel h3{font-size:1.3em;color:#039;padding-bottom:0.5em;padding-top:0.35em;margin:0;}#mitte_artikel h2{font-size:1.4em;}#mitte_artikel h4{margin-top:1em;color:#999;}#mitte_artikel .related_items h4,#mitte_artikel .related_items ul{color:#151515;font-size:1em;}#mitte_artikel .bildunterschrift{font-size:0.9em;line-height:130%;}#mitte_artikel .autorenkasten{border-color:#ccc;border-style:solid none;border-width:1px 0;clear:both;margin:20px -18px 15px;padding:1em 18px 1.5em;}#mitte_artikel .autorenkasten h4{color:#548CDF;margin:0;padding:0 0 10px 0;}#mitte_artikel .autorenkasten img{border:1px solid #eee;float:left;margin-right:8px;}#mitte_artikel .autorenkasten p{color:#333;margin:0 0 10px 0;padding:0}#mitte_artikel .autorenkasten .weitere{font-size:0.95em;margin:0 0 0 58px;}#mitte_uebersicht .anrissliste p.artikel_datum{margin:0;color:#666;}#mitte_uebersicht .anriss_rubrik .datum{color:#666;font-size:0.9em;}#mitte_artikel .themen_foren{margin-top:1em;}/**/#newsletter .bg_box h3,#newsletter .privacy h3,#newsletter .subscribe_newsletter,#newsletter .subscribe_verlagsnachrichten{color:#603;}#newsletter .bg_box input.button{background-color:#1B3059;color:white;}#newsletter .newsletter_info{margin:19px 18px 0;}/**/#mitte_links .news_topteaser,#mitte_links .fussbereich{float:left;display:inline;width:100%;}#mitte_links .news_topteaser{border-bottom:1px solid #fff;background:#fff url("http://www.heise.de/developer/icons/background_topteaser.gif") bottom left repeat-x;}#mitte_links .fussbereich{font-size:0.8em;line-height:125%;background:#e2edfb url("http://www.heise.de/developer/icons/background_pixel_weiss.gif") 50% repeat-y;border-top:1px solid #fff;position:relative;bottom:0;left:0;}#mitte_links .news_topteaser #meldungen,#mitte_links .news_topteaser #artikel,#mitte_links .fussbereich #tagcloud,#mitte_links .fussbereich #forenbeitraege{float:left;display:inline;width:49.9%; padding:18px 0;}#mitte_links .news_topteaser #meldungen{border-right:1px solid #e8e8e8;}#mitte_links .fussbereich #tagcloud{text-align:center;}#mitte_links .news_topteaser h1,#mitte_links .news_topteaser h3,#mitte_links .news_topteaser h4,#mitte_links .news_topteaser p,#mitte_links .fussbereich h5,#mitte_links .fussbereich h6,#mitte_links .fussbereich ul{margin:0 18px;}#mitte_links .news_topteaser h1{font-size:0.9em;margin-top:0.75em;margin-bottom:0.5em;clear:both;}#mitte_links .news_topteaser h3{font-size:0.9em;padding:0.75em 0 0 0;clear:both;}#mitte_links .news_topteaser h4{font-size:0.8em;color:#603;}#mitte_links .news_topteaser p{line-height:130%;font-size:0.8em;}#mitte_links .fussbereich h5,#mitte_links .fussbereich h6{padding:0;font-size:1em;}#mitte_links .fussbereich h6,#mitte_links .fussbereich h6 a{color:#565656;margin-top:0.4em;margin-left:0;}#mitte_links .fussbereich ul{padding:0;list-style:none;}#mitte_links .news_topteaser img{display:inline;float:left;margin:0 10px 0 18px;padding:10px 0;}#mitte_links .news_topteaser a.mehr{font-weight:normal;}#mitte_links .fussbereich #tagcloud li{display:inline;}#mitte_links .fussbereich #tagcloud li.size0{font-size:0.9em;line-height:125%;}#mitte_links .fussbereich #tagcloud li.size1{font-size:1em;line-height:125%;}#mitte_links .fussbereich #tagcloud li.size2{font-size:1.2em;line-height:115%;}#mitte_links .fussbereich #tagcloud li.size3{font-size:1.6em;line-height:110%;}#mitte_links .fussbereich #tagcloud li.size4{font-size:2em;line-height:100%;}#mitte_links .fussbereich #forenbeitraege ul li{margin:0.3em 0 0.8em;line-height:105%;}/**/#sitemap{clear:both;float:left;display:inline;position:relative;top:100px;border-top:1px solid #4e4e4e;width:60em;min-width:950px;background-color:#727577;}/**/ * html #sitemap,* +html #sitemap{bottom:0;margin-top:0;}#sitemap ul{float:left;list-style:none;margin:0.5em 0 0.5em 18px;padding:0;}#sitemap li{float:left;font-size:0.7em;width:12em;margin:0;padding:0;}#sitemap li a{color:#fff;display:block;}#sitemap ul div div{float:left;display:inline;width:12em;}#sitemap .sitemap_rubriken{width:24em;}#sitemap .sitemap_blogs{width:15.5em;}#sitemap .sitemap_service{float:left;margin-left:2em;line-height:175%;}#sitemap .sitemap_service b{display:block;}/**/.adbottom{clear:both;padding-top:0.5em;margin-bottom:1em;}.bcadv,.naviad{clear:both;margin:0 auto 0.5em;text-align:center;width:336px;}.bcadv img{float:none;}.contentbanner{margin:0 0 1em 0;}/**/form#bericht_einsenden{margin-top:2em;font-size:0.8em;line-height:125%;}form#bericht_einsenden label{color:#000;display:block;margin:0 0 0.3em;font-style:italic;}form#bericht_einsenden input,form#bericht_einsenden textarea{color:#333;}form#bericht_einsenden fieldset{margin:0;padding:0;}form#bericht_einsenden fieldset.links{float:left;width:48%;margin-bottom:2em;}form#bericht_einsenden fieldset.rechts{float:right;width:48%;margin-bottom:2em;}form#bericht_einsenden fieldset .checkbox{margin:0.25em 0 0;padding:0;float:left;display:inline;}form#bericht_einsenden fieldset input.checkbox{margin-right:0.5em;}form#bericht_einsenden fieldset label.checkbox{ width:18.5em;margin-top:0.4em;font-style:normal;}form#bericht_einsenden label span{font-size:92.5%;}form#bericht_einsenden label span.error{margin-left:0.25em;}form#bericht_einsenden .text,form#bericht_einsenden textarea{background-color:#fff;border:1px solid #999;font-family:Arial,Helvetica,sans-serif;padding:0.2em;}form#bericht_einsenden input.text{width:95%;}form#bericht_einsenden fieldset div,form#bericht_einsenden #einsendung-beitragstitel,form#bericht_einsenden textarea#einsendung-beitrag{margin-bottom:1.5em;}form#bericht_einsenden #einsendung-beitragstitel{width:98%;}form#bericht_einsenden textarea#einsendung-beitrag{height:15em;font-size:0.9em;width:98%;}form#bericht_einsenden .captcha{margin-top:0.5em;height:3.3em;}form#bericht_einsenden .captcha div img{margin:0.25em 1.5em 0 0;}form#bericht_einsenden .captcha div .text{width:18.5em;}form#bericht_einsenden .buttons{clear:both;margin-top:3em;}form#bericht_einsenden .buttons input{float:left;display:inline;background-color:#1a3059;border:0;color:#fff;font-weight:bold;padding:2px 5px;vertical-align:middle;margin-right:1em;}form#bericht_einsenden .buttons input#einsendung-reset{background-color:#666;}form#bericht_einsenden .datenschutzhinweis{clear:both;margin:0;padding:2.5em 0 1.5em;font-size:95%;line-height:125%;}/**/#mitte_links .prgid{border-bottom:1px solid #dddddd;margin:0 -18px;padding:1em 18px 1em;}#mitte_links .prgid h4{font-weight:normal;margin-bottom:0.25em;margin-top:0.5em;}#mitte_links .prgid h4 img{margin-left:0.25em;vertical-align:bottom;}#mitte_links .prgid .klotzBehaelter img{vertical-align:bottom;}#mitte_links .prgid p{color:#555;font-size:0.7em;margin:0.25em 0 0;padding:0;}#mitte_links .prgid p.text{color:#000;font-size:0.8em;margin-top:1em;}#mitte_links .prgid img.screenshot{float:right;margin-bottom:0.3em;margin-left:0.75em;}#mitte_links .prgid .klotzBehaelter{padding:1px 0;}#mitte_links .prgid .anzahl{font-style:italic;}#mitte_links span.nowrap{white-space:nowrap;}/**/#searchresult{font-size:90%;}#searchresult .page_navi{line-height:32px;color:#999;font-size:0.8em;margin:1em 0;text-align:right;}#mitte_rechts h4.erg_filter{background-color:#1f1515;color:#f0f0f0;font-size:1em;margin:0 0 0 1px;padding:5px 10px;border-bottom:1px solid #ccc;}#mitte_rechts #filter,#mitte_rechts .services,#mitte_rechts .jobs h5{background:none;}#mitte_rechts #filter #top5{border-top:2px solid #ccc;border-bottom:2px solid #ccc;background:none;}#mitte_rechts .services hr{border:1px solid #ccc;}/**/#bilderstrecke{margin:1em auto 2em;}#bilderstrecke .bild{overflow:hidden;}#bilderstrecke .navi_oben,#bilderstrecke .navi_unten{font-size:0.85em;}#bilderstrecke .navi_oben a{text-decoration:none;color:#012469;padding:2px;}#bilderstrecke .navi_unten a{color:#c03;text-decoration:none;padding:2px;}#bilderstrecke .navi_unten a:hover{color:#c03;text-decoration:underline;}#bilderstrecke .navi_oben .nummer b{background:#d60a45;color:#fff;padding:0.1em 0.3em;}/**/#container,#navigation .zweite_ebene,#breadcrumb,#mitte_uebersicht .anriss_blog p.weitere{clear:both;}#navi_login br,#navigation ul div{display:none;}#anrissliste .anriss img,.anrissliste img{float:left;display:inline;padding:5px 10px 5px 0;}#anrissliste .anriss h3 img{float:none;padding:0 5px;}#logo_bereich #logo a,form#bericht_einsenden .captcha div{float:left;display:inline;}pre,#anrissliste p{line-height:130%;}#mitte_text .autoreninfo{padding-bottom:1em;}#mitte_news .news_fuss,#mitte_artikel .artikel_option{margin-top:1em;}#mitte_artikel pre,code,tt,.heise-table,#mitte_artikel .intro h5,#mitte_artikel .artikel_navi,#mitte_artikel h5,#mitte_uebersicht .anriss_blog p,#mitte_news h1,#mitte_news #archiv_kalender p{font-size:1em;}#mitte_uebersicht .anriss li,#anrissliste h3,* +html #archiv_kalender td pre{font-size:0.9em;}.news_navi,#mitte_artikel,#mitte_eventkalender,#mitte_uebersicht .anriss_rubrik,#mitte_uebersicht .anriss_blog,#mitte_uebersicht .intro h5,#mitte_text .intro h5,#mitte_news ol,#mitte_news ul,#mitte_news .news_option{font-size:0.8em;}.news_navi a,a.news_navi,.artikel_navi a,.navi_toc a,/**/#mitte_uebersicht .anriss_rubrik p.weitere a,#mitte_uebersicht .anriss_blog p.weitere a,/**/#mitte_uebersicht .weitere a,#anrissliste .weitere a,#anrissliste .weitere a:visited,/**/#mitte_text .weitere a,#mitte_news .meldung_wrapper span a,#mitte_news a.news_archiv,#mitte_artikel .meldung_wrapper span a,#mitte_artikel .autorenkasten .weitere a,/**/#searchresult .page_navi a,#searchresult .treffer_sort .suchfilter .filter_is_active{color:#c03;}.hinweis a,#anrissliste h3,#anrissliste a,#mitte_links .news_topteaser h1,#mitte_links .news_topteaser h3{color:#039;}#mitte_news a,#mitte_news #archiv_kalender p a,.artikel_navi .pagination a{color:#012469;}#mitte_uebersicht .anriss_rubrik li a,#mitte_uebersicht .anriss_rubrik p a .raquo,#mitte_uebersicht .anriss_blog li a,#mitte_uebersicht .anriss_blog p a .raquo,#mitte_uebersicht .anriss li a{color:#1a3059;}#mitte_uebersicht h3 a:visited,#mitte_uebersicht .anriss_rubrik li a:visited,#mitte_uebersicht .anriss_blog li a:visited,#mitte_uebersicht .anriss li a:visited,#anrissliste h3 a:visited{color:#5d74a1;}a:visited,#mitte_news .news_navi a:visited{color:#666;}h1.ueberschrift,#mitte_links .ueberschrift{color:#999;}
+</style>
+
+
+
+
+
+<link href="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/drucken.css" rel="stylesheet" type="text/css" media="print">
+
+<title> Webservices mit Java EE 6: JAX-WS und RESTful Services | heise Developer</title>
+
+
+<meta http-equiv="content-language" content="de">
+<meta name="DC.creator" content="heise Developer">
+<meta name="date" content="2011-05-23T12:13:00">
+<meta name="keywords" content="Java, Java EE, Webdienste">
+<meta name="author" content="Jens Schumann">
+
+
+    <meta name="fulltitle" content=" Webservices mit Java EE 6: JAX-WS und RESTful Services - Seite 1/3">
+    <meta name="topic" content="Sprachen">
+    <meta name="feature" content="true">
+    <meta name="DC.title" content=" Webservices mit Java EE 6: JAX-WS und RESTful Services">
+    <meta name="DC.description" content="Trotz Hinwendung zu Dokumenten- beziehungsweise Message-Zentrierung und einem klaren Contract-first-Design war der Funktionsumfang von &quot;Java EE 5&quot;-Webservices im Vergleich zu anderen Plattformen unvollständig. Eine Lücke, die mit Java EE 6 endgültig geschlossen ist.">
+    <meta name="DC.identifier" content="http://heise.de/-1247464" scheme="DCTERMS.URI">
+    
+    <link rel="next prefetch" href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?artikelseite=2">
+    <meta name="description" content="Trotz Hinwendung zu Dokumenten- beziehungsweise Message-Zentrierung und einem klaren Contract-first-Design war der Funktionsumfang von &quot;Java EE 5&quot;-Webservices im Vergleich zu anderen Plattformen unvollständig. Eine Lücke, die mit Java EE 6 endgültig geschlossen ist.">
+
+
+
+
+
+
+
+
+
+
+<meta name="copyright" content="Heise Zeitschriften Verlag">
+<link href="http://www.heise.de/favicon_developer.ico" rel="shortcut icon">
+
+<script type="text/javascript" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/social_bookmarks.js"></script>
+<script type="text/javascript" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/external.js"></script>
+<script type="text/javascript" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/teaser_linking.js"></script>
+
+
+
+<meta name="generator" content="InterRed V11.0, http://www.interred.de/, InterRed GmbH">
+<script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/document_iterator.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/find_proxy.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/get_html_text.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/global_constants.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/name_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/number_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/string_finder.js"></script><meta name="document_iterator.js"><meta name="find_proxy.js"><meta name="get_html_text.js"><meta name="global_constants.js"><meta name="name_injection_builder.js"><meta name="number_injection_builder.js"><meta name="string_finder.js"></head>
+
+<body>
+
+
+
+
+
+
+
+<!--googleoff: index-->
+<!--googleoff: snippet-->
+
+<div id="navi_top_container">
+    <div id="navi_top">
+        <div class="navi_top_logo"><a href="http://www.heise.de/index.html/from/navi_oben_ho"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/heise_online_min.gif" alt=""></a></div>
+        <div class="erste_zeile">
+            <ul class="navi_top_abschnitt">
+            
+                <li class="first"><a href="http://www.heise.de/ct/from/navi_oben_ct" title="c&#39;t" class="navi_oben_ct">c't<span> Magazin</span></a></li>
+            
+            
+                <li><a href="http://www.heise.de/ix/from/navi_oben_ix" title="iX" class="navi_oben_ix">iX<span> Magazin</span></a></li>
+            
+            
+                <li><a href="http://www.heise.de/tr/from/navi_oben_tr" title="Technology Review" class="navi_oben_tr">Technology&nbsp;Review</a></li>
+            
+                <li><a href="http://www.heise.de/tp/from/navi_oben_tp" title="Telepolis" class="navi_oben_tp">Telepolis</a></li>
+            
+                <li><a href="http://www.heise.de/mobil/from/navi_oben_mob" title="heise mobil" class="navi_oben_mob"><span>heise </span>mobil</a></li>
+            
+            
+                <li><a href="http://www.heise.de/security/from/navi_oben_sec" title="heise Security" class="navi_oben_sec"><span>heise </span>Security</a></li>
+            
+            
+                <li><a href="http://www.heise.de/netze/from/navi_oben_net" title="heise Netze" class="navi_oben_net"><span>heise </span>Netze</a></li>
+            
+            
+                <li><a href="http://www.heise.de/open/from/navi_oben_op" title="heise open" class="navi_oben_op">Open Source</a></li>
+            
+            
+                <li><a href="http://www.heise.de/developer/from/navi_oben_dev" title="heise Developer" class="navi_oben_dev"><span>heise </span>Developer</a></li>
+            
+            
+                <li><a href="http://www.heise.de/resale/from/navi_oben_res" title="heise resale" class="navi_oben_res"><span>heise </span>Resale</a></li>
+            
+            
+                <li><a href="http://www.heise.de/foto/from/navi_oben_foto" title="heise Foto" class="navi_oben_foto"><span>heise </span>Foto</a></li>
+            
+            
+                <li><a href="http://www.heise.de/autos/from/navi_oben_aut" title="heise Autos" class="navi_oben_aut"><span>heise </span>Autos</a></li>
+            
+            
+                <li><a href="http://www.heise.de/ct-tv/from/navi_oben_tv" title="ctmagazin.tv" class="navi_oben_tv">c't-TV</a></li>
+            
+            
+                <li><a href="http://www.heise.de/mac-and-i/from/navi_oben_mac" title="Mac &amp; i" class="navi_oben_mac">Mac &amp; i</a></li>
+            
+            </ul>
+        </div>
+        <div class="zweite_zeile">
+            <ul class="navi_top_abschnitt">
+                <li class="first"><a href="http://www.heise.de/software/from/navi_oben_swv" title="Software-Verzeichnis" class="navi_oben_swv"><span>Software/</span>Download</a></li>
+            
+                <li><a href="http://www.heise.de/jobs/from/navi_oben_job" title="heise jobs" class="navi_oben_job">Stellenangebote</a></li>
+            
+                <li><a href="http://www.heise.de/preisvergleich/from/navi_oben_pvg" title="Preisvergleich" class="navi_oben_pvg">Preisvergleich</a></li>
+                <li><a href="http://www.heise.de/tarifrechner/from/navi_oben_tarifr" title="Tarifrechner" class="navi_oben_tarifr">Tarifrechner</a></li>
+                <li><a href="http://www.heise.de/itmarkt/from/navi_oben_itm" title="IT-Markt" class="navi_oben_itm">IT-Markt</a></li>
+                <li><a href="http://www.heise.de/redirect-to/marktplatz/from/navi_oben_mkt" title="heise-marktplatz">heise-marktplatz</a></li>
+                <li><a href="http://www.heise.de/events/from/navi_oben_eve" title="heise Events" class="navi_oben_eve"><span>heise </span>Veranstaltungen</a></li>
+                <li><a href="http://www.heise.de/whitepapers/from/navi_oben_whi" title="heise Whitepapers" class="navi_oben_whi"><span>heise </span>Whitepapers</a></li>
+                <li><a href="http://www.heise.de/redirect-to/abo/from/navi_oben_abo" title="Zeitschriften-Abo" class="navi_oben_abo">Abo</a></li>
+                <li><a href="http://www.heise.de/redirect-to/shop/from/navi_oben_shop" title="heise-shop" class="navi_oben_shop">Shop</a></li>
+                <li><a href="http://www.heise.de/artikel-archiv/from/navi_oben_kio" title="Artikel-Archiv" class="navi_oben_kio">Archiv</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        <script type="text/javascript" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/doubleclicktag.js"></script>
+    
+
+
+
+<div id="container">
+    <div id="container_content">
+        <div id="logo_bereich">
+            <div id="logo">
+                <a href="http://www.heise.de/developer/" title="heise Developer"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/heise_developer_logo.gif" width="267" height="40" alt="heise Developer"></a>
+            </div>
+            <ul id="navigation_meta">
+                <li><a href="http://www.heise.de/developer/foren/" title="heise Developer Foren">Foren</a></li>
+                <li><a href="http://www.heise.de/newsletter/manage/developer" title="heise Developer Newsletter">Newsletter</a></li>
+                <li><a href="http://www.heise.de/developer/rss/news-atom.xml" title="heise Developer RSS">RSS</a></li>
+                <li><a href="http://www.heise.de/developer/kontakt/" title="Kontakt zur Redaktion">Kontakt</a></li>
+            </ul>
+            <div id="navigation">
+                <form id="suchfeld" action="http://www.heise.de/developer/suche/?sort=d;channel=developer" method="get" accept-charset="utf-8">
+                    <h4>
+                        <input type="text" name="q" id="q" value="" class="textfield">
+                        <input type="submit" name="search_submit" value="Suche" class="search_submit">
+                        <input type="hidden" name="rm" value="search" class="search_hidden">
+                    </h4>
+                </form>
+                <div id="navi_login">
+                    <script type="text/javascript" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/login_ho.js"></script><b>Sie sind Gast</b><br><a href="https://www.heise.de/login/?dirid=1&rm=show_login&forward=http%3A//www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html">Einloggen</a> | <a href="https://www.heise.de/register?dirid=1&rm=show_registration">Registrieren</a>
+                    <noscript>
+                        &lt;p&gt;
+                            &lt;a href="https://www.heise.de/userdb/sso?rm=show_login&amp;amp;dirid=1&amp;amp;objekt=/developer/"&gt;Einloggen&lt;/a&gt; |
+                            &lt;a href="https://www.heise.de/userdb/sso?rm=do_logout&amp;amp;dirid=1"&gt;Ausloggen&lt;/a&gt;
+                        &lt;/p&gt;
+                    </noscript>
+                </div>
+                <ul>
+                
+                    <li>
+                        <b><a href="http://www.heise.de/developer/" title="News">News</a></b>
+                        
+                    </li>
+                
+                    <li class="aktiv">
+                        <b><a href="http://www.heise.de/developer/rubriken/" title="Rubriken">Rubriken</a></b>
+                        
+                            <div>
+                            
+                                <a href="http://www.heise.de/developer/sprachen-1037.html" title="Sprachen">Sprachen</a>
+                            
+                                <a href="http://www.heise.de/developer/architektur-methoden-1031.html" title="Architektur/Methoden">Architektur/Methoden</a>
+                            
+                                <a href="http://www.heise.de/developer/werkzeuge-1041.html" title="Werkzeuge">Werkzeuge</a>
+                            
+                                <a href="http://www.heise.de/developer/know-how-1033.html" title="Know-how">Know-how</a>
+                            
+                                <a href="http://www.heise.de/developer/standards-1039.html" title="Standards">Standards</a>
+                            
+                                <a href="http://www.heise.de/developer/literatur-1035.html" title="Literatur">Literatur</a>
+                            
+                            </div>
+                        
+                    </li>
+                
+                    <li>
+                        <b><a href="http://www.heise.de/developer/blog/" title="Blogs">Blogs</a></b>
+                        
+                    </li>
+                
+                    <li>
+                        <b><a href="http://www.heise.de/developer/podcast/" title="Podcast">Podcast</a></b>
+                        
+                    </li>
+                
+                    <li>
+                        <b><a href="http://www.heise.de/developer/veranstaltungsberichte/" title="Szene">Szene</a></b>
+                        
+                    </li>
+                
+                    <li>
+                        <b><a href="http://www.heise.de/developer/software/" title="Software">Software</a></b>
+                        
+                    </li>
+                
+                    <li>
+                        <b><a href="http://www.heise.de/developer/FAQ-Liste-2442.html" title="FAQ-Liste">FAQ-Liste</a></b>
+                        
+                    </li>
+                
+                </ul>
+                <div class="zweite_ebene">
+                
+                    
+                
+                    
+                        
+                            <a href="http://www.heise.de/developer/sprachen-1037.html" title="Sprachen">Sprachen</a>
+                        
+                            <a href="http://www.heise.de/developer/architektur-methoden-1031.html" title="Architektur/Methoden">Architektur/Methoden</a>
+                        
+                            <a href="http://www.heise.de/developer/werkzeuge-1041.html" title="Werkzeuge">Werkzeuge</a>
+                        
+                            <a href="http://www.heise.de/developer/know-how-1033.html" title="Know-how">Know-how</a>
+                        
+                            <a href="http://www.heise.de/developer/standards-1039.html" title="Standards">Standards</a>
+                        
+                            <a href="http://www.heise.de/developer/literatur-1035.html" title="Literatur">Literatur</a>
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                </div>
+            </div>
+        </div>
+
+        
+	<div id="breadcrumb">
+	
+		<a href="http://www.heise.de/developer/" title="heise Developer">heise Developer</a>
+		<span class="bread_gt">&gt;</span>
+	
+		<a href="http://www.heise.de/developer/rubriken/" title="Rubriken">Rubriken</a>
+		<span class="bread_gt">&gt;</span>
+	
+		<a href="http://www.heise.de/developer/sprachen-1037.html" title="Sprachen">Sprachen</a>
+		<span class="bread_gt">&gt;</span>
+	
+		<span class="titel"> Webservices mit Java EE 6: JAX-WS und RESTful Services</span>
+		
+	
+	</div>
+
+
+
+        <div id="mitte">
+        
+            <div id="mitte_links">
+        
+        <!--googleon: index-->
+        
+
+	
+<div id="mitte_artikel">
+
+    
+		<div class="navi_toc">
+			<ol>
+				
+				<li><a href="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer.htm">Artikelanfang</a></li>
+				
+				<li><a href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?artikelseite=2">SOAP vs. REST</a></li>
+				
+				<li><a href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?artikelseite=3">Fazit</a></li>
+				
+			</ol>
+		</div>
+
+
+
+    <!--googleon: snippet-->
+    <!--googleon: index-->
+    
+        <!--googleoff: index-->
+        <!--googleoff: snippet-->
+	<p class="artikel_datum"><b>Sprachen</b> 23.05.2011 - 12:13</p>
+        
+            <p id="keywords">
+            Schlagwörter:
+            
+                <a href="http://www.heise.de/developer/thema/?thema=Webservices">Webservices</a>, 
+            
+                <a href="http://www.heise.de/developer/thema/?thema=Java">Java</a>
+            
+            </p>
+        
+        <!--googleon: index-->
+        <!--googleon: snippet-->
+	<h4 class="art_autor">Jens Schumann</h4>
+	<h1> Webservices mit Java EE 6: JAX-WS und RESTful Services</h1>
+	
+	    <h3>Auf Augenhöhe (mit dem Rest der Welt)</h3>
+	
+    
+    <div class="meldung_wrapper">
+	<p><strong>	<!-- RSPEAK_STOP -->
+	<span class="bild_links" style="width:215px;">
+		<img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/aufmacher_ajax.jpg-76a6b16ba14e34c7.jpeg" width="215" height="200" alt="">
+	
+	
+	</span>
+	<!-- RSPEAK_START -->
+Mit JAX-WS 2.0 erfolgte schon bei Java&nbsp;EE&nbsp;5 die längst überfällige Generalüberholung der Java-Webservices: Weg von Webservices im RPC-Stil hin zu Dokumenten- beziehungsweise Message-Zentrierung und einem klaren Contract-first-Design. Doch im Vergleich zu anderen Plattformen war auch der Funktionsumfang von "Java&nbsp;EE&nbsp;5"-Webservices unvollständig. Eine Lücke, die nun mit Java&nbsp;EE&nbsp;6 endgültig geschlossen ist.</strong></p>
+<p>Aus Entwicklersicht hat sich die Java-Webservices-Welt seit vielen Jahren kaum verändert: Ausgestattet mit einem Webservice-Framework der Wahl war und ist das Bereitstellen beziehungsweise Anbinden von Webservices mit Java eine Leichtigkeit. Dabei übernimmt das Framework lästige Aufgaben wie das Generieren serverseitiger Webservice-Klassen oder von Webservice-Client-Code, mit dem sich auf bereitgestellte Dienste zugreifen lässt. Zu den wirklich nennenswerten Veränderungen der letzten Jahre zählte daher nur die Verschiebung der Machtverhältnisse innerhalb der Framework-Landschaft: Galt jahrelang <a href="http://axis.apache.org/axis/" rel="external" target="_blank">Apache Axis</a> in der Java-Community als der Platzhirsch, haben mittlerweile <a href="http://cxf.apache.org/" rel="external" target="_blank">Apache CXF</a> und andere, in umfassendere Techniken integrierte Webservice-Stacks wie <a href="http://static.springsource.org/spring-ws/sites/2.0/" rel="external" target="_blank">Spring Web Services</a> oder <a href="http://www.jboss.org/jbossws" rel="external" target="_blank">JBoss WS</a> deutlich an Gewicht gewonnen.</p><!--googleoff: index-->
+<!-- RSPEAK_STOP -->
+<div class="bcadv ISI_IGNORE"><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.write('<script src="http://ad-emea.doubleclick.net/N6514/adj/developer/dev-inhalt;sz=300x250,336x280;tile=1;ord=2995086630?" type="text/javascript"><\/script>');
+//--><!]]>
+</script><script src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/dev-inhalt;sz=300x250,336x280;tile=1" type="text/javascript"></script><span style="font-family: Arial, Helvetica, sans-serif; color: Black; font-size:7pt; font-weight: normal; text-align: left;">Anzeige</span><br>
+<a href="http://adclick.g.doubleclick.net/aclk?sa=L&ai=BQRpM7Cf_TeXeN5jH_Aak4am2DfaG978CAAAAEAEgADgAWIbcu8g1YJX68IGMB4IBF2NhLXB1Yi01MTIxNjkwNDIxMzM3NTA2sgEMd3d3LmhlaXNlLmRlugEJZ2ZwX2ltYWdlyAEJ2gFoaHR0cDovL3d3dy5oZWlzZS5kZS9kZXZlbG9wZXIvYXJ0aWtlbC9XZWJzZXJ2aWNlcy1taXQtSmF2YS1FRS02LUpBWC1XUy11bmQtUkVTVGZ1bC1TZXJ2aWNlcy0xMjQ3NDY0Lmh0bWypAvMp3STh3rc-wAIC4AIA6gIZNjUxNC9kZXZlbG9wZXIvZGV2LWluaGFsdPgC8NEekAPIBpgDyAaoAwHQBJBO4AQB&num=0&sig=AGiWqtwVon3J9NoljPj2_y_zt01fQZBq4Q&client=ca-pub-5121690421337506&adurl=http://webcasts.heise.de/virtualisierung-cloud/ihr-einstieg-in-die-cloud-flexible-skalierbare-infrastruktur--und-storageloesungen-out-of-the-box/%3Fsource%3DHome_Banner" rel="external" target="_blank">
+<img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/imgad" width="336" height="280" alt=""></a>
+<noscript>&lt;div&gt;&lt;a href="http://ad-emea.doubleclick.net/N6514/jump/developer/dev-inhalt;sz=300x250,336x280;tile=1;ord=2995086630?" target="_blank"&gt;&lt;img alt="" src="http://ad-emea.doubleclick.net/N6514/ad/developer/dev-inhalt;sz=300x250,336x280;tile=1;ord=2995086630?" /&gt;&lt;/a&gt;&lt;/div&gt;</noscript>
+</div>
+<!-- RSPEAK_START -->
+<!--googleon: index-->
+<p>
+		</p><div class="heisebox_right">
+			<h4>Quo vadis Java EE 6?</h4>
+<p></p><ul><li> <a href="http://www.heise.de/developer/artikel/Enterprise-Java-im-Wandel-eine-Standortbestimmung-403669.html">Über den Stand der Dinge im "Java EE 6"-Umfeld</a> </li><li> <a href="http://www.heise.de/developer/artikel/Convention-over-Code-in-Java-EE-817769.html">Convention over Code</a> </li><li> <a href="http://www.heise.de/developer/artikel/Webentwicklung-im-Licht-von-Java-EE-Profiles-und-EJB-Lite-984378.html">Webentwicklung im Licht von Java EE Profiles und "EJB Lite"</a> </li><li><b>Java-Webservices: JAX WS und REST API</b></li><li>App Server Extensibility: Server-Erweiterungen leicht gemacht</li><li>Java EE Blueprints revisited: Die passende Architektur für die neuen APIs</li></ul><p></p>
+		</div><p>
+	</p>
+<p>Das Bereitstellen von Webservices über die standardisierte "Java EE"-Plattform hingegen spielte – trotz der Verfügbarkeit seit J2EE&nbsp;1.4 – eine eher untergeordnete Rolle. Die Ursachen dafür sind vielschichtig. Zu den<br>wesentlichsten gehören sicherlich die zähen Standardisierungsbestrebungen, da J2EE&nbsp;1.4 erst Jahre nach dem Erscheinen kommerzieller und freier Frameworks ein Angebot für Java-Webservices bot. Dummerweise führte der dann formulierte Ansatz, Methoden von Enterprise JavaBeans (EJB) als Webservices bereitzustellen, nicht automatisch zu überschwänglicher Begeisterung in der Java-Community. Im Gegenteil: Neben den sowieso damals leicht in Verruf geratenen EJBs stellte sie vor allem die Interoperabilität derartig formulierter Webservices in Frage. Zu Recht, wie mittlerweile die Abkehr von diesen sogenannten Code-first-Webservices belegt.</p>
+<p>Spätestens seit der mit Java&nbsp;EE&nbsp;5 spezifizierten Java API for XML Web Services&nbsp;2.0 JAX-WS haben sich die Vorzeichen wieder deutlich zugunsten des Standards verschoben. Die Gründe für einen expliziten Einsatz eines Frameworks zum Bereitstellen von Webservices wurden schlagartig verringert, wenn auch bis dahin Java&nbsp;EE nur klassische und nicht datenzentrierte Webservices unterstützte. Mit Java&nbsp;EE&nbsp;6 wurde nunmehr auch diese Lücke geschlossen, sodass sich mit dem heutigen Enterprise-Java portable, service- oder datenorientierte Webservices umsetzen lassen. Die Portabilität umfasst dabei sowohl Java-Applikationsserver als auch -Webservice-Frameworks, sofern diese die derzeit gültigen Webservice-APIs implementieren.</p>
+<h3 class="subheading">Vertrag oder Daten?</h3>
+<p>Grundsätzlich unterscheidet die Webservices-Community – vor allem außerhalb der Java-Gemeinde – zwei Arten von Webservices: Auf der einen Seite befinden sich die klassischen Services, die die Informationen auf Basis eines zwischen Client und Server festgelegten Vertrags austauschen. Ein derartiger Vertrag wird in einer formalen Sprache – der Web Services Description Language (<a href="http://www.w3.org/TR/wsdl20/" rel="external" target="_blank">WSDL</a>) – definiert, die sich wiederum zu großen Teilen der Formalismen von XML Schema (<a href="http://www.w3.org/TR/xmlschema11-2" rel="external" target="_blank">XSD</a>) bedient. Die andere Form von Webservices hingegen legt den Fokus nicht auf einen formalen Vertrag, sondern ausschließlich auf das Bereitstellen und Aktualisieren beliebiger Daten über ein einfaches und definiertes Transportprotokoll. Technisch gesehen setzen die beiden Ansätze somit entweder auf <a href="http://www.w3.org/TR/soap" rel="external" target="_blank">SOAP</a>- oder aber auf <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer" rel="external" target="_blank">RESTful</a>-Services. Beide Ansätze genügen dabei den Anforderungen an Interoperabilität, wobei im Falle von SOAP die zugrunde liegenden Spezifikationen und im Falle von RESTful-Services der Anbieter der Dienste den Grad der Interoperabilität festlegen.</p>
+
+	
+    </div>
+    <!--googleoff: snippet-->
+    <!--googleoff: index-->
+
+    
+	<p class="artikel_navi">
+		<span class="navibalken">
+		
+			<span class="pagination">
+		
+			
+				<b>1</b>
+			
+		
+			
+				<a href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?artikelseite=2">2</a>
+			
+		
+			
+				<a href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?artikelseite=3">3</a>
+			
+		
+			</span>
+		
+			<span class="rechts"><a href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?artikelseite=2" title="vor">vor »</a></span>
+		
+		</span>
+	</p>
+
+
+        
+		<p>Permalink: <a href="http://heise.de/-1247464">http://heise.de/-1247464</a></p>
+	
+    <div id="social_bookmarks"><a href="http://delicious.com/save?url=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Fdelicious&title=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer&tags=Java%2C%20Java%20EE%2C%20Webdienste&notes=Trotz%20Hinwendung%20zu%20Dokumenten-%20beziehungsweise%20Message-Zentrierung%20und%20einem%20klaren%20Contract-first-Design%20war%20der%20Funktionsumfang%20von%20%22Java%20EE%205%22-Webservices%20im%20Vergleich%20zu%20anderen%20Plattformen%20unvollst%C3%A4ndig.%20Eine%20L%C3%BCcke%2C%20die%20mit%20Java%20EE%206%20endg%C3%BCltig%20geschlossen%20ist." title="Bei delicious.com eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/delicious.gif" width="18" height="18" alt="Bei delicious.com eintragen"></a><a href="http://digg.com/submit?url=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Fdigg&title=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer&topic=technology&bodytext=Trotz%20Hinwendung%20zu%20Dokumenten-%20beziehungsweise%E2%80%A6" title="Bei Digg eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/digg.gif" width="18" height="18" alt="Bei Digg eintragen"></a><a href="http://de.facebook.com/sharer.php?u=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Ffacebook&t=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer" title="Mit Facebook-Freunden teilen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/facebook.gif" width="18" height="18" alt="Mit Facebook-Freunden teilen"></a><a href="http://www.google.com/bookmarks/mark?op=add&bkmk=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Fgooglebookmarks&title=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer&labels=Java%2C%20Java%20EE%2C%20Webdienste&annotation=Trotz%20Hinwendung%20zu%20Dokumenten-%20beziehungsweise%20Message-Zentrierung%20und%20einem%20klaren%20Contract-first-Design%20war%20der%20Funktionsumfang%20von%20%22Java%20EE%205%22-Webservices%20im%20Vergleich%20zu%20anderen%20Plattformen%20unvollst%C3%A4ndig.%20Eine%20L%C3%BCcke%2C%20die%20mit%20Java%20EE%206%20endg%C3%BCltig%20geschlossen%20ist." title="Bei Google Bookmarks eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/google_bookmarks.gif" width="18" height="18" alt="Bei Google Bookmarks eintragen"></a><a href="http://www.google.com/reader/link?url=http%3A%2F%2Fheise.de%2F-1247464%2Ffbz&title=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer&snippet=Trotz%20Hinwendung%20zu%20Dokumenten-%20beziehungsweise%20Message-Zentrierung%20und%20einem%20klaren%20Contract-first-Design%20war%20der%20Funktionsumfang%20von%20%22Java%20EE%205%22-Webservices%20im%20Vergleich%20zu%20anderen%20Plattformen%20unvollst%C3%A4ndig.%20Eine%20L%C3%BCcke%2C%20die%20mit%20Java%20EE%206%20endg%C3%BCltig%20geschlossen%20ist.&srcURL=http%3A%2F%2Fwww.heise.de&srcTitle=heise%20online" title="Bei Google buzzen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/googlebuzz.gif" width="18" height="18" alt="Bei Google buzzen"></a><a href="http://linkarena.com/bookmarks/addlink/?url=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Flinkarena&title=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer&tags=Java%2C%20Java%20EE%2C%20Webdienste" title="Bei Linkarena eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/linkarena.gif" width="18" height="18" alt="Bei Linkarena eintragen"></a><a href="http://www.mister-wong.de/index.php?action=addurl&bm_url=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Fmrwong&bm_description=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer" title="Bei Mr. Wong eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/mrwong.gif" width="18" height="18" alt="Bei Mr. Wong eintragen"></a><a href="http://www.newsvine.com/_tools/seed?popoff=0&u=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Fnewsvine&h=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer" title="Bei Newsvine eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/newsvine.gif" width="18" height="18" alt="Bei Newsvine eintragen"></a><a href="http://www.oneview.de/add/?URL=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Foneview&title=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer&tags=Java%2C%20Java%20EE%2C%20Webdienste" title="Bei Oneview eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/oneview.gif" width="18" height="18" alt="Bei Oneview eintragen"></a><a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Fstumbleupon&title=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer" title="Bei Stumbleupon eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/stumbleupon.gif" width="18" height="18" alt="Bei Stumbleupon eintragen"></a><a href="http://twitter.com/intent/tweet?text=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer%20http%3A%2F%2Fheise.de%2F-1247464%2Fftw" title="Twittern" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/twitter.gif" width="18" height="18" alt="Twittern"></a><a href="https://favorites.live.com/quickadd.aspx?marklet=1&mkt=de-de&url=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Fwindowslive&title=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer&top=1" title="Bei Windows Live eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/windowslive.gif" width="18" height="18" alt="Bei Windows Live eintragen"></a><a href="http://www.yigg.de/neu?exturl=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%2Ffrom%2Fyigg&exttitle=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services%20-%20heise%20Developer" title="Bei Yigg eintragen" target="_blank"><img class="sb_img" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/yigg.gif" width="18" height="18" alt="Bei Yigg eintragen"></a></div>
+
+    <p class="artikel_option">
+	<a href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?view=print" rel="nofollow">Version zum Drucken</a> |
+	<a href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?view=mail" rel="nofollow">Per E-Mail versenden</a>
+    </p>
+
+    
+	
+	<p class="themen_foren">
+	    <a href="http://www.heise.de/developer/foren/S-Java/forum-44545/list/">Zum Themen-Forum Java</a>
+	</p>
+	
+    
+    
+
+
+
+<div class="related_items">
+	<h4>Auch auf heise online:</h4>
+	<ul>
+	
+	    <li><a href="http://www.heise.de/developer/meldung/WebSphere-8-erscheint-im-Juni-1224429.html/from/related" title="WebSphere 8 erscheint im Juni">WebSphere 8 erscheint im Juni</a></li>
+	
+	    <li><a href="http://www.heise.de/developer/meldung/Freie-Java-API-fuer-RESTful-Webservices-1-1-5836.html/from/related" title="Freie Java-API für RESTful-Webservices 1.1">Freie Java-API für RESTful-Webservices 1.1</a></li>
+	
+	    <li><a href="http://www.heise.de/developer/artikel/Episode-6-Middleware-in-der-Java-Welt-353220.html/from/related" title="Episode 6: Middleware in der Java-Welt">Episode 6: Middleware in der Java-Welt</a></li>
+	
+	    <li><a href="http://www.heise.de/developer/meldung/JBoss-RESTEasy-unterstuetzt-REST-Architekturansatz-201040.html/from/related" title="JBoss RESTEasy unterstützt REST-Architekturansatz">JBoss RESTEasy unterstützt REST-Architekturansatz</a></li>
+	
+	    <li><a href="http://www.heise.de/developer/meldung/JSF-2-0-Servlet-3-0-und-JCA-1-6-auf-dem-Weg-in-die-naechste-Java-Enterprise-Edition-198041.html/from/related" title="JSF 2.0, Servlet 3.0 und JCA 1.6 auf dem Weg in die nächste Java Enterprise Edition">JSF 2.0, Servlet 3.0 und JCA 1.6 auf dem Weg in die nächste Java Enterprise Edition</a></li>
+	
+	    <li><a href="http://www.heise.de/newsticker/meldung/Schnellere-Webservices-fuer-Java-142380.html/from/related" title="Schnellere Webservices für Java">Schnellere Webservices für Java</a></li>
+	
+	</ul>
+</div>
+
+
+
+    
+
+</div>
+
+
+        <!--googleoff: index-->
+        <div class="adbottom"><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.write('<script src="http://ad-emea.doubleclick.net/N6514/adj/developer/dev-inhalt;sz=500x500;tile=2;ord=2995086630?" type="text/javascript"><\/script>');
+//--><!]]>
+</script><script src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/dev-inhalt;sz=500x500;tile=2" type="text/javascript"></script><span class="anzeigenlabel_links">Anzeige</span>
+<div class="heise_textad_fullclick">
+<a href="http://adclick.g.doubleclick.net/aclk?sa=L&ai=BCWZD8Sf_TZzUBJjH_Aak4am2Da7rvsACAAAAEAEgADgAWIaPt_IuYJX68IGMB4IBF2NhLXB1Yi01MTIxNjkwNDIxMzM3NTA2sgEMd3d3LmhlaXNlLmRlugEJZ2ZwX2ltYWdlyAEJ2gFoaHR0cDovL3d3dy5oZWlzZS5kZS9kZXZlbG9wZXIvYXJ0aWtlbC9XZWJzZXJ2aWNlcy1taXQtSmF2YS1FRS02LUpBWC1XUy11bmQtUkVTVGZ1bC1TZXJ2aWNlcy0xMjQ3NDY0Lmh0bWzgAQKpAvMp3STh3rc-wAIC4AIA6gIZNjUxNC9kZXZlbG9wZXIvZGV2LWluaGFsdPgC8NEekAPIBpgDyAaoAwHQBJBO4AQB&num=0&sig=AGiWqtzNDBmKIaZ3B-JTS1lLo4a__b4acw&client=ca-pub-5121690421337506&adurl=http://ad-emea.doubleclick.net/clk%3B240633634%3B63548322%3Bd" rel="external" target="_blank">
+<img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/imgad(1)" width="75" height="50" alt="">
+<span class="hl">Leistungsstarke Speicherlösungen mit Preisvorteil</span>
+<span>Kombinationen aus Bandspeicherlösungen mit LTO-Laufwerken inklusive passender
+Ultrium Kassetten erhalten Sie jetzt mit 5 % Preisvorteil.</span>
+</a></div>
+
+<img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/B5494398;sz=1x1" border="0" width="1" height="1">
+
+<noscript>&lt;div&gt;&lt;a href="http://ad-emea.doubleclick.net/N6514/jump/developer/dev-inhalt;sz=500x500;tile=2;ord=2995086630?" target="_blank"&gt;&lt;img alt="" src="http://ad-emea.doubleclick.net/N6514/ad/developer/dev-inhalt;sz=500x500;tile=2;ord=2995086630?" /&gt;&lt;/a&gt;&lt;/div&gt;</noscript>
+</div>
+        
+        
+            </div>
+            <div id="mitte_rechts">
+            
+            
+                
+                
+                
+
+
+
+    <div class="teaser_blogs">
+	<h4><a href="http://www.heise.de/developer/blog/">Developer Blogs</a></h4>
+	<div>
+        
+        <a href="http://www.heise.de/developer/developer_redakteur_403101.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/autoren_je-53a1662395e2babe.jpg" width="50" height="63" alt="Jutta Eckstein"></a>
+        
+        <a href="http://www.heise.de/developer/developer_redakteur_403097.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/autoren_nj-1b984e2b6ba55108.jpg" width="50" height="63" alt="Nicolai Josuttis"></a>
+        
+        <a href="http://www.heise.de/developer/developer_redakteur_403105.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/autoren_kk-e2619b6705251068.jpg" width="50" height="63" alt="Kai König"></a>
+        
+        <a href="http://www.heise.de/developer/developer_redakteur_403109.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/autoren_hs-c9ef5c1af71ea44a.jpg" width="50" height="63" alt="Dr. Holger Schwichtenberg"></a>
+        
+        <a href="http://www.heise.de/developer/developer_redakteur_437673.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/autoren_bo-28dc62ba18a6d3ee.jpg" width="50" height="63" alt="Bernd Oestereich"></a>
+        
+        <a href="http://www.heise.de/developer/developer_redakteur_964686.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/mw-blog.jpg-effa762534bfc3e0.jpeg" width="50" height="63" alt="Michael Wiedeking"></a>
+        
+    </div>
+    
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/artikel/Hilfe-beim-Fehler-The-Print-Spooler-service-terminated-unexpectedly-1262973.html" title="Hilfe beim Fehler &quot;The Print Spooler service terminated unexpectedly.&quot;">Hilfe beim Fehler "The Print Spooler service terminated unexpectedly."</a></h3>
+        <p><a href="http://www.heise.de/developer/artikel/Hilfe-beim-Fehler-The-Print-Spooler-service-terminated-unexpectedly-1262973.html">
+            Wenn der Print Spooler-Dienst in Windows nicht mehr starten will, hilft es, die installierten Drucker in der Registry zu löschen. <a href="http://www.heise.de/developer/artikel/Hilfe-beim-Fehler-The-Print-Spooler-service-terminated-unexpectedly-1262973.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+    
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/artikel/Tipp-Eigene-T4-Vorlagen-in-den-ADO-NET-Entity-Framework-Designer-einbinden-1259494.html" title="Tipp: Eigene T4-Vorlagen in den ADO.NET Entity Framework Designer einbinden">Tipp: Eigene T4-Vorlagen in den ADO.NET Entity Framework Designer einbinden</a></h3>
+        <p><a href="http://www.heise.de/developer/artikel/Tipp-Eigene-T4-Vorlagen-in-den-ADO-NET-Entity-Framework-Designer-einbinden-1259494.html">
+            Selbsterstellte T4-Code-Gnerierungsvorlagen kann man mit einem Trick im Dialog "Add Code Generation Item" im Kontextmenü des EF-Designers nutzbar machen. <a href="http://www.heise.de/developer/artikel/Tipp-Eigene-T4-Vorlagen-in-den-ADO-NET-Entity-Framework-Designer-einbinden-1259494.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+    
+    </div>
+
+
+
+                
+
+
+
+    <div class="teaser_podcast">
+	<h4><a href="http://www.heise.de/developer/podcast/">SoftwareArchitekTOUR-Podcast</a></h4>
+	
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/artikel/Episode-30-Product-Line-Engineering-1234799.html" title="Episode 30: Product Line Engineering">Episode 30: Product Line Engineering</a></h3>
+        <p><a href="http://www.heise.de/developer/artikel/Episode-30-Product-Line-Engineering-1234799.html">
+            <a href="http://www.heise.de/developer/podcast/" rel="nofollow"><a href="http://www.heise.de/developer/artikel/Episode-30-Product-Line-Engineering-1234799.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/podcast_teaser.gif" alt="Developer-Podcast"></a></a>
+            Eine Episode über Product Line Engineering, welche Vorteile und Nachteile sich daraus ergeben, und wie man zu einer Produktlinie kommt. <a href="http://www.heise.de/developer/artikel/Episode-30-Product-Line-Engineering-1234799.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+	
+    </div>
+
+
+
+                
+
+
+
+    <div class="teaser_themen">
+	<h4><a href="http://www.heise.de/developer/news/">Topmeldungen</a></h4>
+    
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/meldung/Studie-Cloud-Computing-als-Treiber-fuer-mehr-Qualitaetssicherung-1263082.html" title="Studie: Cloud Computing als Treiber für mehr Qualitätssicherung">Studie: Cloud Computing als Treiber für mehr Qualitätssicherung</a></h3>
+        <p><a href="http://www.heise.de/developer/meldung/Studie-Cloud-Computing-als-Treiber-fuer-mehr-Qualitaetssicherung-1263082.html">
+            <a href="http://www.heise.de/developer/meldung/Studie-Cloud-Computing-als-Treiber-fuer-mehr-Qualitaetssicherung-1263082.html" title="Studie: Cloud Computing als Treiber für mehr Qualitätssicherung"><a href="http://www.heise.de/developer/meldung/Studie-Cloud-Computing-als-Treiber-fuer-mehr-Qualitaetssicherung-1263082.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/0054cdf9976618e5.png" width="100" height="75" alt="" title=""></a></a>
+            Deutsche Unternehmen liegen im Rahmen des von Capgemini, Sogeti und HP herausgegebenen World Quality Report beim automatisierten Testen vorn, sind aber zurückhaltender bei der Nutzung von Cloud Computing. <a href="http://www.heise.de/developer/meldung/Studie-Cloud-Computing-als-Treiber-fuer-mehr-Qualitaetssicherung-1263082.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+    
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/meldung/Konfigurierbare-Workflows-mit-YouTrack-3-0-1262710.html" title="Konfigurierbare Workflows mit YouTrack 3.0">Konfigurierbare Workflows mit YouTrack 3.0</a></h3>
+        <p><a href="http://www.heise.de/developer/meldung/Konfigurierbare-Workflows-mit-YouTrack-3-0-1262710.html">
+            <a href="http://www.heise.de/developer/meldung/Konfigurierbare-Workflows-mit-YouTrack-3-0-1262710.html" title="Konfigurierbare Workflows mit YouTrack 3.0"><a href="http://www.heise.de/developer/meldung/Konfigurierbare-Workflows-mit-YouTrack-3-0-1262710.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/whatsnew3preview-ff0411c691081e1e.png" width="99" height="100" alt="" title=""></a></a>
+            Der Issue-Tracker der tschechischen Softwarefirma JetBrains ist nun kostenlos für Teams mit bis zu zehn Mitgliedern. <a href="http://www.heise.de/developer/meldung/Konfigurierbare-Workflows-mit-YouTrack-3-0-1262710.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+    
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/meldung/Progress-veroeffentlicht-DataDirect-OpenAccess-SDK-7-1262538.html" title="Progress veröffentlicht DataDirect OpenAccess SDK 7">Progress veröffentlicht DataDirect OpenAccess SDK 7</a></h3>
+        <p><a href="http://www.heise.de/developer/meldung/Progress-veroeffentlicht-DataDirect-OpenAccess-SDK-7-1262538.html">
+            
+            Mit dem SDK sollen Entwickler Informationen aus ODBC-, JDBC-, OLE-DB- oder ADO.NET-kompatiblen Applikationen SQL-fähig machen können. <a href="http://www.heise.de/developer/meldung/Progress-veroeffentlicht-DataDirect-OpenAccess-SDK-7-1262538.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+    
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/meldung/Update-fuer-IBMs-Collaborative-Lifecycle-Management-Produkte-1262447.html" title="Update für IBMs &quot;Collaborative Lifecycle Management&quot;-Produkte">Update für IBMs "Collaborative Lifecycle Management"-Produkte</a></h3>
+        <p><a href="http://www.heise.de/developer/meldung/Update-fuer-IBMs-Collaborative-Lifecycle-Management-Produkte-1262447.html">
+            
+            IBM hat rund eine Woche nach der Innovate 2011 die Versionen 3.0.1 der Rational-Produkte Team Concert, Quality Manager und Requirements Composer veröffentlicht. <a href="http://www.heise.de/developer/meldung/Update-fuer-IBMs-Collaborative-Lifecycle-Management-Produkte-1262447.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+    
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/meldung/Developer-Snapshots-Programmierer-News-in-ein-zwei-Saetzen-1262303.html" title="Developer Snapshots: Programmierer-News in ein, zwei Sätzen ">Developer Snapshots: Programmierer-News in ein, zwei Sätzen </a></h3>
+        <p><a href="http://www.heise.de/developer/meldung/Developer-Snapshots-Programmierer-News-in-ein-zwei-Saetzen-1262303.html">
+            <a href="http://www.heise.de/developer/meldung/Developer-Snapshots-Programmierer-News-in-ein-zwei-Saetzen-1262303.html" title="Developer Snapshots: Programmierer-News in ein, zwei Sätzen "><a href="http://www.heise.de/developer/meldung/Developer-Snapshots-Programmierer-News-in-ein-zwei-Saetzen-1262303.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/Snapshots-077b0ead95a44b83.png" width="97" height="100" alt="" title=""></a></a>
+            Die Developer Snapshots behandeln unter anderem Jenkins, Layer 7 API Portal, .NET 4.0, NetAdvantage Ultimate 2011.1, Qt Commercial, Python und ReSharper.  <a href="http://www.heise.de/developer/meldung/Developer-Snapshots-Programmierer-News-in-ein-zwei-Saetzen-1262303.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+    
+    <div class="anriss">
+        <h3><a href="http://www.heise.de/developer/meldung/Microsoft-haelt-WebGL-fuer-zu-unsicher-1262166.html" title="Microsoft hält WebGL für zu unsicher">Microsoft hält WebGL für zu unsicher</a></h3>
+        <p><a href="http://www.heise.de/developer/meldung/Microsoft-haelt-WebGL-fuer-zu-unsicher-1262166.html">
+            <a href="http://www.heise.de/developer/meldung/Microsoft-haelt-WebGL-fuer-zu-unsicher-1262166.html" title="Microsoft hält WebGL für zu unsicher"><a href="http://www.heise.de/developer/meldung/Microsoft-haelt-WebGL-fuer-zu-unsicher-1262166.html"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/ef9cab7f8d871b81.png" width="100" height="80" alt="" title=""></a></a>
+            Nach Auffassung von Microsoft ist WebGL zurzeit eine so unsichere Technik, dass das Unternehmen sie nicht in seinen Produkten verwenden will. <a href="http://www.heise.de/developer/meldung/Microsoft-haelt-WebGL-fuer-zu-unsicher-1262166.html"><span class="mehr_schnipsel">Mehr…</span></a>
+        </a></p>
+    </div>
+    
+    </div>
+
+
+
+                <div class="naviad"><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.write('<script src="http://ad-emea.doubleclick.net/N6514/adj/developer/dev-inhalt;sz=336x200;tile=3;ord=2995086630?" type="text/javascript"><\/script>');
+//--><!]]>
+</script><script src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/dev-inhalt;sz=336x200;tile=3" type="text/javascript"></script>
+<noscript>&lt;div&gt;&lt;a href="http://ad-emea.doubleclick.net/N6514/jump/developer/dev-inhalt;sz=336x200;tile=3;ord=2995086630?" target="_blank"&gt;&lt;img alt="" src="http://ad-emea.doubleclick.net/N6514/ad/developer/dev-inhalt;sz=336x200;tile=3;ord=2995086630?" /&gt;&lt;/a&gt;&lt;/div&gt;</noscript>
+</div>
+                
+
+
+
+
+<div class="teaser_frei">
+    
+	<h4>Sonderheft</h4>
+    
+    
+	<h3><a href="http://www.heise-shop.de/heise-zeitschriften-verlag/ct-kompakt-02-2011-programmieren_pid_14814391.html">c't kompakt 02/2011 Programmieren</a></h3>
+    
+    <p><a href="http://www.heise-shop.de/heise-zeitschriften-verlag/ct-kompakt-02-2011-programmieren_pid_14814391.html">
+	
+	    <a href="http://www.heise-shop.de/heise-zeitschriften-verlag/ct-kompakt-02-2011-programmieren_pid_14814391.html"><img alt="" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/308041181cbc3868-5543e80244d73031.jpg"></a>
+	
+	Das 170 Seiten starke Sonderheft hilft beim Einstieg in die Programmierung von Apps und Desktop-Anwendungen und regt mit vielen Beispielen und Projekten zum Selbermachen an. Mit über 60 Programmen bietet die Heft-DVD alles, was zum Einstieg in die Welt der Programmierung nötig ist.
+    </a></p>
+</div>
+
+
+
+                
+            
+            </div>
+        
+        </div>
+    </div>
+    
+
+
+<div id="sitemap">
+    <ul>
+	<li>
+	    <b><a href="http://www.heise.de/developer/" title="News">News</a></b>
+	    <div>
+		<a href="http://www.heise.de/developer/news/" title="7-Tage-News">7-Tage-News</a>
+		<a href="http://www.heise.de/developer/news/archiv/" title="News-Archiv">News-Archiv</a>
+	    </div>
+	</li>
+	<li class="sitemap_rubriken">
+	    <b><a href="http://www.heise.de/developer/rubriken/" title="Rubriken">Rubriken</a></b>
+	    <div>
+		<div>
+		    <a href="http://www.heise.de/developer/sprachen-1037.html" title="Sprachen">Sprachen</a>
+		    <a href="http://www.heise.de/developer/architektur-methoden-1031.html" title="Architektur/Methoden">Architektur/Methoden</a>
+		    <a href="http://www.heise.de/developer/werkzeuge-1041.html" title="Werkzeuge">Werkzeuge</a>
+		</div>
+		<div>
+		    <a href="http://www.heise.de/developer/know-how-1033.html" title="Know-how">Know-how</a>
+		    <a href="http://www.heise.de/developer/standards-1039.html" title="Standards">Standards</a>
+		    <a href="http://www.heise.de/developer/literatur-1035.html" title="Literatur">Literatur</a>
+		</div>
+	    </div>
+	</li>
+	<li class="sitemap_blogs">
+	    <b><a href="http://www.heise.de/developer/blog/" title="Blogs">Blogs</a></b>
+	    <div>
+		<a href="http://www.heise.de/developer/der-dotnet-doktor-1292.html" title="">Der Dotnet-Doktor</a>
+		<a href="http://www.heise.de/developer/kais-bewegtes-web-1294.html" title="">Kais bewegtes Web</a>
+		<a href="http://www.heise.de/developer/bernds-management-welt-1290.html" title="">Bernds Management-Welt</a>
+		<a href="http://www.heise.de/developer/the-world-of-it-1296.html" title="">The World of IT</a>
+	    </div>
+	</li>
+	<li>
+	    <b><a href="http://www.heise.de/developer/veranstaltungsberichte/" title="Szene">Szene</a></b>
+	    <div>
+		<a href="http://www.heise.de/developer/veranstaltungsberichte/" title="Veranstaltungsberichte">Veranstaltungsberichte</a>
+		<a href="http://www.heise.de/developer/termine/" title="Termine">Termine</a>
+		<a href="http://www.heise.de/developer/Newsgroups-und-Mailinglisten-fuer-Software-Entwickler-2464.html" title="Newsgroups">Newsgroups</a>
+	    </div>
+	</li>
+	<li class="sitemap_service">
+	    <b><a href="http://www.heise.de/developer/podcast/" title="Podcast">Podcast</a></b>
+	    <b><a href="http://www.heise.de/developer/software/" title="Software">Software</a></b>
+	    <b><a href="http://www.heise.de/developer/FAQ-Liste-2442.html" title="FAQ-Liste">FAQ-Liste</a></b>
+	    <b><a href="http://www.heise.de/developer/foren/" title="Foren">Foren</a></b>
+	    <b><a href="http://www.heise.de/newsletter/manage/developer" title="Newsletter">Newsletter</a></b>
+	</li>
+    </ul>
+</div>
+
+    <div id="bannerzone">
+        <div class="leaderboard"><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var rb = false; document.write('<script src="http://ad-emea.doubleclick.net/N6514/adj/developer/dev-inhalt;sz=728x90,468x60;tile=4;ord=2995086630?" type="text/javascript"><\/script>');
+//--><!]]>
+</script><script src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/dev-inhalt;sz=728x90,468x60;tile=4" type="text/javascript"></script><script language="JavaScript1.1" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/B5615922;sz=728x90">
+</script><!-- Copyright 2008 DoubleClick, a division of Google Inc. All rights reserved. -->
+<!-- Code auto-generated on Tue Jun 14 06:06:13 EDT 2011 -->
+<script src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/flashwrite_1_2.js"></script>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="DCF242513888" width="728" height="90"><param name="movie" value="http://s0.2mdn.net/2845482/Chrome_Developers_LB_728x90_IAB_v3.swf"><param name="flashvars" value="moviePath=http://s0.2mdn.net/2845482/&amp;moviepath=http://s0.2mdn.net/2845482/&amp;clicktag=http%3A//ad-emea.doubleclick.net/click%253Bh%253Dv8/3b2c/f/1f6/%252a/c%253B242513888%253B2-0%253B0%253B65396585%253B3454-728/90%253B42629827/42647614/1%253B%253B%257Esscs%253D%253fhttp%3A//adclick.g.doubleclick.net/aclk%3Fsa%3DL%26ai%3DBvZIW8yf_TcelEcTj_AbL4ejWDY7alcECAAAAEAEgADgAWObm7MI1YJX68IGMB4IBF2NhLXB1Yi01MTIxNjkwNDIxMzM3NTA2sgEMd3d3LmhlaXNlLmRlugEJZ2ZwX2ltYWdlyAEJ2gFoaHR0cDovL3d3dy5oZWlzZS5kZS9kZXZlbG9wZXIvYXJ0aWtlbC9XZWJzZXJ2aWNlcy1taXQtSmF2YS1FRS02LUpBWC1XUy11bmQtUkVTVGZ1bC1TZXJ2aWNlcy0xMjQ3NDY0Lmh0bWzgAQSpAvMp3STh3rc-wAIC4AIA6gIZNjUxNC9kZXZlbG9wZXIvZGV2LWluaGFsdPgC8NEekAPIBpgDyAaoAwHQBJBO4AQB%26num%3D0%26sig%3DAGiWqtzouXNBhz9uINjbWCs4Hptawd71WA%26client%3Dca-pub-5121690421337506%26adurl%3Dhttp%253a%252f%252fwww.google.de/chrome/intl/de/p/madeingermany.html%253Finstalldataindex%253Dnosearch%2526brand%253DCHQG%2526hl%253Dde-DE%2526utm_campaign%253Dde-DE%2526utm_source%253Dde-DE-oa-emea-madeinDEQ22011%2526utm_medium%253Doa%2526site%253D908895"><param name="quality" value="high"><param name="wmode" value="opaque"><param name="base" value="http://s0.2mdn.net/2845482"><param name="AllowScriptAccess" value="always"><embed src="http://s0.2mdn.net/2845482/Chrome_Developers_LB_728x90_IAB_v3.swf" flashvars="moviePath=http://s0.2mdn.net/2845482/&amp;moviepath=http://s0.2mdn.net/2845482/&amp;clicktag=http%3A//ad-emea.doubleclick.net/click%253Bh%253Dv8/3b2c/f/1f6/%252a/c%253B242513888%253B2-0%253B0%253B65396585%253B3454-728/90%253B42629827/42647614/1%253B%253B%257Esscs%253D%253fhttp%3A//adclick.g.doubleclick.net/aclk%3Fsa%3DL%26ai%3DBvZIW8yf_TcelEcTj_AbL4ejWDY7alcECAAAAEAEgADgAWObm7MI1YJX68IGMB4IBF2NhLXB1Yi01MTIxNjkwNDIxMzM3NTA2sgEMd3d3LmhlaXNlLmRlugEJZ2ZwX2ltYWdlyAEJ2gFoaHR0cDovL3d3dy5oZWlzZS5kZS9kZXZlbG9wZXIvYXJ0aWtlbC9XZWJzZXJ2aWNlcy1taXQtSmF2YS1FRS02LUpBWC1XUy11bmQtUkVTVGZ1bC1TZXJ2aWNlcy0xMjQ3NDY0Lmh0bWzgAQSpAvMp3STh3rc-wAIC4AIA6gIZNjUxNC9kZXZlbG9wZXIvZGV2LWluaGFsdPgC8NEekAPIBpgDyAaoAwHQBJBO4AQB%26num%3D0%26sig%3DAGiWqtzouXNBhz9uINjbWCs4Hptawd71WA%26client%3Dca-pub-5121690421337506%26adurl%3Dhttp%253a%252f%252fwww.google.de/chrome/intl/de/p/madeingermany.html%253Finstalldataindex%253Dnosearch%2526brand%253DCHQG%2526hl%253Dde-DE%2526utm_campaign%253Dde-DE%2526utm_source%253Dde-DE-oa-emea-madeinDEQ22011%2526utm_medium%253Doa%2526site%253D908895" width="728" height="90" type="application/x-shockwave-flash" quality="high" swliveconnect="true" wmode="opaque" name="DCF242513888" base="http://s0.2mdn.net/2845482" allowscriptaccess="always"></object>
+<noscript>&lt;a target="_blank" href="http://ad-emea.doubleclick.net/click%3Bh%3Dv8/3b2c/f/1f6/%2a/c%3B242513888%3B2-0%3B0%3B65396585%3B3454-728/90%3B42629827/42647614/1%3B%3B%7Esscs%3D%3fhttp://adclick.g.doubleclick.net/aclk?sa=L&amp;ai=BvZIW8yf_TcelEcTj_AbL4ejWDY7alcECAAAAEAEgADgAWObm7MI1YJX68IGMB4IBF2NhLXB1Yi01MTIxNjkwNDIxMzM3NTA2sgEMd3d3LmhlaXNlLmRlugEJZ2ZwX2ltYWdlyAEJ2gFoaHR0cDovL3d3dy5oZWlzZS5kZS9kZXZlbG9wZXIvYXJ0aWtlbC9XZWJzZXJ2aWNlcy1taXQtSmF2YS1FRS02LUpBWC1XUy11bmQtUkVTVGZ1bC1TZXJ2aWNlcy0xMjQ3NDY0Lmh0bWzgAQSpAvMp3STh3rc-wAIC4AIA6gIZNjUxNC9kZXZlbG9wZXIvZGV2LWluaGFsdPgC8NEekAPIBpgDyAaoAwHQBJBO4AQB&amp;num=0&amp;sig=AGiWqtzouXNBhz9uINjbWCs4Hptawd71WA&amp;client=ca-pub-5121690421337506&amp;adurl=http%3a%2f%2fwww.google.de/chrome/intl/de/p/madeingermany.html%3Finstalldataindex%3Dnosearch%26brand%3DCHQG%26hl%3Dde-DE%26utm_campaign%3Dde-DE%26utm_source%3Dde-DE-oa-emea-madeinDEQ22011%26utm_medium%3Doa%26site%3D908895"&gt;&lt;img src="http://s0.2mdn.net/2845482/Chrome_Developers_LB_728x90_GDN_v3.gif" width="728" height="90" border="0" alt="Advertisement" galleryimg="no"&gt;&lt;/a&gt;</noscript>
+
+
+<noscript>&lt;div&gt;&lt;a href="http://ad-emea.doubleclick.net/N6514/jump/developer/dev-inhalt;sz=728x90,468x60;tile=4;ord=2995086630?" target="_blank"&gt;&lt;img alt="" src="http://ad-emea.doubleclick.net/N6514/ad/developer/dev-inhalt;sz=728x90,468x60;tile=4;ord=2995086630?" /&gt;&lt;/a&gt;&lt;/div&gt;</noscript>
+</div>
+        <div class="heiseadvert"></div>
+        <div class="skyscraper"><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+if (typeof rb != "undefined" && rb != true) document.write('<script src="http://ad-emea.doubleclick.net/N6514/adj/developer/dev-inhalt;sz=120x600,120x800,160x600,160x800;tile=5;ord=2995086630?" type="text/javascript"><\/script>');
+//--><!]]>
+</script><script src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/dev-inhalt;sz=120x600,120x800,160x600,160x800;tile=5" type="text/javascript"></script><style type="text/css">
+  #container {
+     width: 64em;
+  }
+</style>
+
+<iframe src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/1669662532.htm" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" topmargin="0" leftmargin="0" allowtransparency="true" width="160" height="600">
+&lt;script language="JavaScript" type="text/javascript"&gt;
+document.write('&lt;a href="http://adclick.g.doubleclick.net/aclk?sa=L&amp;ai=BTyb78yf_TbahLMTj_AbL4ejWDc6mtrcCAAAAEAEgADgAWPaNnakyYJX68IGMB4IBF2NhLXB1Yi01MTIxNjkwNDIxMzM3NTA2sgEMd3d3LmhlaXNlLmRlugEJZ2ZwX2ltYWdlyAEJ2gFoaHR0cDovL3d3dy5oZWlzZS5kZS9kZXZlbG9wZXIvYXJ0aWtlbC9XZWJzZXJ2aWNlcy1taXQtSmF2YS1FRS02LUpBWC1XUy11bmQtUkVTVGZ1bC1TZXJ2aWNlcy0xMjQ3NDY0Lmh0bWzgAQWpAvMp3STh3rc-wAIC4AIA6gIZNjUxNC9kZXZlbG9wZXIvZGV2LWluaGFsdPgC8NEekAPIBpgDyAaoAwHQBJBO4AQB&amp;num=0&amp;sig=AGiWqtxDExPsuUV694e4NHFb0qoorEFj6Q&amp;client=ca-pub-5121690421337506&amp;adurl=http://clk.atdmt.com/DEM/go/328898943/direct/01/" target="_blank"&gt;&lt;img src="http://view.atdmt.com/DEM/view/328898943/direct/01/1669662532"/&gt;&lt;/a&gt;');
+&lt;/script&gt;</iframe>
+<noscript>&lt;div&gt;&lt;a href="http://ad-emea.doubleclick.net/N6514/jump/developer/dev-inhalt;sz=120x600,120x800,160x600,160x800;tile=5;ord=2995086630?" target="_blank"&gt;&lt;img alt="" src="http://ad-emea.doubleclick.net/N6514/ad/developer/dev-inhalt;sz=120x600,120x800,160x600,160x800;tile=5;ord=2995086630?" /&gt;&lt;/a&gt;&lt;/div&gt;</noscript>
+</div>
+    </div>
+</div>
+
+
+
+
+
+<div style="display: inline;"><img id="ivw_pixel_intern" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html" width="1" height="1" alt=""></div>
+    
+    <script type="text/javascript">
+        if (typeof(adblocker_is_off) == 'undefined')
+            {
+                var AVW = '<' + 'div style="display: inline;"><' + 'img id="avw_pixel_intern" src="/avw-bin/ivw/CP/adblock/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html" width="1" height="1" alt="" /><' + '/div>';
+                document.write(AVW);
+            }
+    </script>
+    
+        <script type="text/javascript">
+            <!--//--><![CDATA[//><!--
+            var IVW='<div style="display: inline;"><img id="ivw_pixel" src="http://heise.ivwbox.de/cgi-bin/ivw/CP/dev;%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?r=http%3A%2F%2Fwww.google.de%2Furl%3Fsa%3Dt%26source%3Dweb%26cd%3D2%26ved%3D0CCcQFjAB%26url%3Dhttp%253A%252F%252Fwww.heise.de%252Fdeveloper%252Fartikel%252FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%26rct%3Dj%26q%3Dheise%2520webservices%2520mit%2520java%26ei%3Dyif_Tf35G87csgaL3MDyDQ%26usg%3DAFQjCNH3Wgiv1yW8FkNVur2OXZS8sBRnHw';
+            document.write(IVW + '&amp;d=' + (Math.random()*100000) + '" width="1" height="1" alt="" /><' + '/div>');
+            //--><!]]>
+        </script><div style="display: inline;"><img id="ivw_pixel" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/dev" width="1" height="1" alt=""></div>
+        <script type="text/javascript" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/mclient-1.0.js"></script>
+        <noscript>
+            &lt;div style="display: inline;"&gt;&lt;img src="http://heise.ivwbox.de/cgi-bin/ivw/CP/dev;/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html?r=http%3A%2F%2Fwww.google.de%2Furl%3Fsa%3Dt%26source%3Dweb%26cd%3D2%26ved%3D0CCcQFjAB%26url%3Dhttp%253A%252F%252Fwww.heise.de%252Fdeveloper%252Fartikel%252FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%26rct%3Dj%26q%3Dheise%2520webservices%2520mit%2520java%26ei%3Dyif_Tf35G87csgaL3MDyDQ%26usg%3DAFQjCNH3Wgiv1yW8FkNVur2OXZS8sBRnHw&amp;amp;d=" width="1" height="1" alt="" /&gt;&lt;/div&gt;
+        </noscript>
+        <script type="text/javascript">
+            <!--//--><![CDATA[//><!--
+            window.onunload=function() {};
+            //--><!]]>
+        </script>
+        
+            <!-- SZMFRABO VERSION="1.2" -->
+            <script type="text/javascript">
+                <!--//--><![CDATA[//><!--
+                var szmvars="heise//CP//dev";
+                //--><!]]>
+            </script>
+            <script src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/survey.js" type="text/javascript"></script><script src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/saved_resource"></script>
+            <!-- /SZMFRABO -->
+        
+
+
+<!-- RL -->
+
+    <!-- RL_PATH:%2Fho%2Fcms%2F94%2F98%2F99%2F2011%2F05%2F23%2F1247464%2F1247464 -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var screenInfo = escape( screen.width + 'x' + screen.height + 'x' + screen.colorDepth );
+var cookiesEnabled = 0;
+if (navigator.cookieEnabled) cookiesEnabled=1;
+var referrer = escape(document.referrer);
+referrer = referrer.replace( /(\/software\/download).*$/, "$1/" );
+document.write(
+'<div style="display: inline;"><img id="rl_pixel" src="http://rl.heise.de/images/pic.gif?r=' + referrer + ';tp=1073741824%7C1073827193%7C1073843731%7C1073843732%7C1073844031%7C1074434028%7C1074521635%7C1074524259;m=Heise;tid=1074524260;random=' + (Math.random()*100000) + ';con=1;json=1;tc=1073741824%7C1073827193%7C1073843731%7C1073843732%7C1073844031%7C1074434028%7C1074521635%7C1074524259%7C1074524260;c=1247464;b=668068;sep=%7C;tce=1;tn=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services;tpn=heise%20online%7CRedaktioneller%20Content%7CDeveloper%7CRubriken%7CSprachen%7C2011%7C05%7C23%7C%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services;url=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html;tit=Seite%201%3A%20%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services;tpu=1;sz=' + screenInfo + ';con=' + cookiesEnabled + ';cs=1" width="1" height="1" alt="" /><' + '/div>'
+);
+//--><!]]>
+</script><div style="display: inline;"><img id="rl_pixel" src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/pic.gif" width="1" height="1" alt=""></div>
+<noscript>
+  &lt;div style="display: inline;"&gt;&lt;img id="rl_pixel" src="http://rl.heise.de/images/pic.gif?r=http%3A%2F%2Fwww.google.de%2Furl%3Fsa%3Dt%26source%3Dweb%26cd%3D2%26ved%3D0CCcQFjAB%26url%3Dhttp%253A%252F%252Fwww.heise.de%252Fdeveloper%252Fartikel%252FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html%26rct%3Dj%26q%3Dheise%2520webservices%2520mit%2520java%26ei%3Dyif_Tf35G87csgaL3MDyDQ%26usg%3DAFQjCNH3Wgiv1yW8FkNVur2OXZS8sBRnHw;tp=1073741824%7C1073827193%7C1073843731%7C1073843732%7C1073844031%7C1074434028%7C1074521635%7C1074524259;m=Heise;tid=1074524260;random=4594662619;json=0;tc=1073741824%7C1073827193%7C1073843731%7C1073843732%7C1073844031%7C1074434028%7C1074521635%7C1074524259%7C1074524260;c=1247464;b=668068;sep=%7C;tce=1;tn=%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services;tpn=heise%20online%7CRedaktioneller%20Content%7CDeveloper%7CRubriken%7CSprachen%7C2011%7C05%7C23%7C%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services;url=http%3A%2F%2Fwww.heise.de%2Fdeveloper%2Fartikel%2FWebservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html;tit=Seite%201%3A%20%20Webservices%20mit%20Java%20EE%206%3A%20JAX-WS%20und%20RESTful%20Services;tpu=1;con=1;cs=1" width="1" height="1" alt="" /&gt;&lt;/div&gt;
+</noscript>
+
+<!-- /RL -->    <script type="text/javascript">
+        <!--//--><![CDATA[//><!--
+        // VGWORT-CROP-MARKER
+        var vgwort_token='2f678f1a3aa747458ad3ff574605cc6c';
+                document.write('<div style="display: inline;"><img src="http://heise.met.vgwort.de/na/' +  vgwort_token);
+        document.write('" width="1" height="1" alt="" /><' + '/div>');
+        //--><!]]>
+    </script><div style="display: inline;"><img src="./Webservices mit Java EE 6  JAX-WS und RESTful Services   heise Developer_files/2f678f1a3aa747458ad3ff574605cc6c" width="1" height="1" alt=""></div>
+
+
+    
+
+	<ul id="navi_bottom">
+
+	
+		<li class="left"><a href="http://www.heise.de/Privacy-Policy-der-Heise-Zeitschriften-Verlag-GmbH-Co-KG-4860.html">Datenschutzhinweis</a> </li>
+	
+
+	
+		<li class="left"><a href="http://www.heise.de/developer/Impressum-5196.html">Impressum</a></li>
+	
+
+	
+		<li class="left"><a href="http://www.heise.de/developer/Kontakt-zur-Redaktion-5198.html">Kontakt</a></li>
+	
+
+	
+		<li class="left"><a href="http://www.heise.de/mediadaten/online/">Mediadaten</a> </li>
+	
+
+
+<li class="bid_anzeige">
+668068
+</li>
+
+
+
+    <li class="right"><a href="http://www.interred.de/" rel="external" style="margin-right: 0;" target="_blank">Content Management</a> by <b style="margin-right: 0.5em;">Inter<span class="tx_red">Red</span></b></li>
+
+	
+		
+		<li class="right"><a href="http://www.heise-medien.de/zeitschriften/">Copyright © 2011 Heise Zeitschriften Verlag</a></li>
+		
+	
+
+	
+		<li class="international"><span class="international">International: <a href="http://www.h-online.com/">The H</a>, <a href="http://www.h-online.com/security/">The H Security</a>, <a href="http://www.h-online.com/open/">The H Open Source</a> </span></li>
+	
+</ul>
+
+
+
+
+
+<!-- Created with InterRed V11.0-x.x.x.x, http://www.interred.de/, by InterRed GmbH -->
+<!-- BID: 668068, iBID: 668299, CID: 1247464, iCID: 1247728 -->
+<!-- Link: $(LB668068:Linktext)$ $(LC1247464:Linktext)$ -->
+<!-- Generiert: 2011-05-23 13:13:02 -->
+
+</body><span id="skype_highlighting_settings" display="none" autoextractnumbers="1"></span><object id="skype_plugin_object" location.href="http://www.heise.de/developer/artikel/Webservices-mit-Java-EE-6-JAX-WS-und-RESTful-Services-1247464.html" location.hostname="www.heise.de" style="position: absolute; visibility: hidden; left: -100px; top: -100px; " width="0" height="0" type="application/x-vnd.skype.toolbars.npplugin.4.2.0"></object></html>
