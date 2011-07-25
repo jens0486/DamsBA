@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProjectTreeState projectID="kGTiJxSGAqBWXRMg" projectPath="D:\FHB\Abschlussarbeit\Schriftliche_Arbeit\Diagramme\DamsApp.vpp">
-	<TreeState name="ModelRepository" viewX="0" viewY="0"/>
+	<TreeState name="ModelRepository" viewX="0" viewY="0">
+		<ExpandedPath>ModelRepository</ExpandedPath>
+	</TreeState>
 	<TreeState name="DiagramNavigator" viewX="0" viewY="0">
 		<ExpandedPath>DiagramNavigator</ExpandedPath>
 	</TreeState>
-	<TreeState name="ClassBrowser" viewX="0" viewY="0"/>
+	<TreeState name="ClassBrowser" viewX="99" viewY="265">
+		<ExpandedPath>ClassBrowser</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,helper</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence</ExpandedPath>
+		<SelectedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence,Cable.java</SelectedPath>
+		<SelectedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence,CableInterface.java</SelectedPath>
+		<SelectedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence,PersistenceAppListener.java</SelectedPath>
+		<SelectedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence,SapObject.java</SelectedPath>
+	</TreeState>
 	<TreeState name="LogicalView" viewX="0" viewY="0"/>
 </ProjectTreeState>
