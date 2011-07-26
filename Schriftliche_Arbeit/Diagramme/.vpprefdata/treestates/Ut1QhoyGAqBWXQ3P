@@ -6,19 +6,14 @@
 	<TreeState name="DiagramNavigator" viewX="0" viewY="0">
 		<ExpandedPath>DiagramNavigator</ExpandedPath>
 	</TreeState>
-	<TreeState name="ClassBrowser" viewX="99" viewY="265">
+	<TreeState name="ClassBrowser" viewX="0" viewY="0">
 		<ExpandedPath>ClassBrowser</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,helper</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence</ExpandedPath>
-		<SelectedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence,Cable.java</SelectedPath>
-		<SelectedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence,CableInterface.java</SelectedPath>
-		<SelectedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence,PersistenceAppListener.java</SelectedPath>
-		<SelectedPath>ClassBrowser,Instant Reverse,D:\FHB\JEE_EnterpriseAnwendung\Projekt\DAMS02\src,de,seideman,dams,persistence,SapObject.java</SelectedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv,HOeNhoyGAqBWXSq4</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv,HOeNhoyGAqBWXSq4,5ueNhoyGAqBWXSrB</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv,HOeNhoyGAqBWXSq4,5ueNhoyGAqBWXSrB,5ueNhoyGAqBWXSrK</ExpandedPath>
+		<SelectedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv,HOeNhoyGAqBWXSq4,5ueNhoyGAqBWXSrB,5ueNhoyGAqBWXSrK,o.eNhoyGAqBWXSrU</SelectedPath>
 	</TreeState>
 	<TreeState name="LogicalView" viewX="0" viewY="0"/>
 </ProjectTreeState>
