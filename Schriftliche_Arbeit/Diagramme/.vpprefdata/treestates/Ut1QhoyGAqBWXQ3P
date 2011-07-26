@@ -5,15 +5,13 @@
 	</TreeState>
 	<TreeState name="DiagramNavigator" viewX="0" viewY="0">
 		<ExpandedPath>DiagramNavigator</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
+		<ExpandedPath>ClassDiagram</ExpandedPath>
+		<SelectedPath>ClassDiagram,j1TcZoyGAqBOwqkR</SelectedPath>
 	</TreeState>
 	<TreeState name="ClassBrowser" viewX="0" viewY="0">
 		<ExpandedPath>ClassBrowser</ExpandedPath>
-		<ExpandedPath>ClassBrowser,ClassBrowser</ExpandedPath>
-		<ExpandedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv</ExpandedPath>
-		<ExpandedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv,HOeNhoyGAqBWXSq4</ExpandedPath>
-		<ExpandedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv,HOeNhoyGAqBWXSq4,5ueNhoyGAqBWXSrB</ExpandedPath>
-		<ExpandedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv,HOeNhoyGAqBWXSq4,5ueNhoyGAqBWXSrB,5ueNhoyGAqBWXSrK</ExpandedPath>
-		<SelectedPath>ClassBrowser,ClassBrowser,sWeNhoyGAqBWXSqv,HOeNhoyGAqBWXSq4,5ueNhoyGAqBWXSrB,5ueNhoyGAqBWXSrK,o.eNhoyGAqBWXSrU</SelectedPath>
+		<SelectedPath>ClassBrowser,Instant Reverse</SelectedPath>
 	</TreeState>
 	<TreeState name="LogicalView" viewX="0" viewY="0"/>
 </ProjectTreeState>

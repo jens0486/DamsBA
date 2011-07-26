@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProjectsViewInfo>
-	<DiagramOpenInfos activeDiagramId="ZsbiJxSGAqBWXR8K">
-		<Info bounds="Re:0.0,0.0,1152.0,495.0" diagramId="ZsbiJxSGAqBWXR8K" maximized="true" offsetX="0" offsetY="0"/>
-		<Info bounds="Re:0.0,0.0,1152.0,495.0" diagramId="60Na4oyGAqBOwg2s" maximized="false" offsetX="420" offsetY="44"/>
-		<Info bounds="Re:0.0,0.0,1152.0,495.0" diagramId="qoVlhoyGAqBWXSqG" maximized="false" offsetX="20" offsetY="490"/>
+	<DiagramOpenInfos activeDiagramId="j1TcZoyGAqBOwqkR">
+		<Info bounds="Re:0.0,0.0,1152.0,495.0" diagramId="ZsbiJxSGAqBWXR8K" maximized="false" offsetX="0" offsetY="0"/>
+		<Info bounds="Re:0.0,0.0,1152.0,574.0" diagramId="60Na4oyGAqBOwg2s" maximized="false" offsetX="692" offsetY="0"/>
+		<Info bounds="Re:0.0,0.0,1152.0,495.0" diagramId="qoVlhoyGAqBWXSqG" maximized="false" offsetX="74" offsetY="0"/>
 		<Info bounds="Re:0.0,0.0,1152.0,495.0" diagramId="EgddhoyGAqBWXV32" maximized="false" offsetX="0" offsetY="245"/>
+		<Info bounds="Re:0.0,0.0,1154.0,654.0" diagramId="j1TcZoyGAqBOwqkR" maximized="false" offsetX="0" offsetY="0"/>
 	</DiagramOpenInfos>
 </ProjectsViewInfo>
