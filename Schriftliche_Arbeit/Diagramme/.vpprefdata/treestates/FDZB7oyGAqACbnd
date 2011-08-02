@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectTreeState projectID="Iys.ZoyGAqBOwiH7" projectPath="D:\FHB\Abschlussarbeit\Schriftliche_Arbeit\Diagramme\class2.vpp">
+	<TreeState name="ModelRepository" viewX="0" viewY="0">
+		<ExpandedPath>ModelRepository</ExpandedPath>
+	</TreeState>
+	<TreeState name="DiagramNavigator" viewX="0" viewY="18">
+		<ExpandedPath>DiagramNavigator</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
+		<ExpandedPath>ClassDiagram</ExpandedPath>
+		<SelectedPath>ClassDiagram,j1TcZoyGAqBOwqkR</SelectedPath>
+	</TreeState>
+	<TreeState name="ClassBrowser" viewX="0" viewY="0">
+		<ExpandedPath>ClassBrowser</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\Private\Android\Test\Dams\src\de\seideman\dams</ExpandedPath>
+		<SelectedPath>ClassBrowser,Instant Reverse,D:\Private\Android\Test\Dams\src\de\seideman\dams</SelectedPath>
+	</TreeState>
+	<TreeState name="LogicalView" viewX="0" viewY="0"/>
+</ProjectTreeState>
