@@ -2,6 +2,7 @@
 <ProjectTreeState projectID="Iys.ZoyGAqBOwiH7" projectPath="D:\FHB\Abschlussarbeit\Schriftliche_Arbeit\Diagramme\class2.vpp">
 	<TreeState name="ModelRepository" viewX="0" viewY="0">
 		<ExpandedPath>ModelRepository</ExpandedPath>
+		<SelectedPath>ModelRepository</SelectedPath>
 	</TreeState>
 	<TreeState name="DiagramNavigator" viewX="0" viewY="18">
 		<ExpandedPath>DiagramNavigator</ExpandedPath>
@@ -12,8 +13,11 @@
 	<TreeState name="ClassBrowser" viewX="0" viewY="0">
 		<ExpandedPath>ClassBrowser</ExpandedPath>
 		<ExpandedPath>ClassBrowser,Instant Reverse</ExpandedPath>
-		<ExpandedPath>ClassBrowser,Instant Reverse,D:\Private\Android\Test\Dams\src\de\seideman\dams</ExpandedPath>
-		<SelectedPath>ClassBrowser,Instant Reverse,D:\Private\Android\Test\Dams\src\de\seideman\dams</SelectedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\Private\Android\Test\Dams\src\de\seideman</ExpandedPath>
+		<ExpandedPath>ClassBrowser,Instant Reverse,D:\Private\Android\Test\Dams\src\de\seideman,dams</ExpandedPath>
+		<SelectedPath>ClassBrowser,Instant Reverse,D:\Private\Android\Test\Dams\src\de\seideman,dams,exceptions</SelectedPath>
 	</TreeState>
-	<TreeState name="LogicalView" viewX="0" viewY="0"/>
+	<TreeState name="LogicalView" viewX="0" viewY="0">
+		<SelectedPath>LogicalView</SelectedPath>
+	</TreeState>
 </ProjectTreeState>
